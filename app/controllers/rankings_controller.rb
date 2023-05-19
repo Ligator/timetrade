@@ -12,9 +12,7 @@ class RankingsController < ApplicationController
 
   # GET /rankings/new
   def new
-    offered_task = current_user.offered_tasks.find(ranking_params[:task_id])
-    ranking_params = ranking_params.merge!(supplier_id: offered_task.supplier_id, beneficiary_id: offered_task.beneficiary_id)
-    @ranking = offered_task.ranking.new(ranking_params)
+    @ranking = Ranking.new
   end
 
   # GET /rankings/1/edit
@@ -23,7 +21,9 @@ class RankingsController < ApplicationController
 
   # POST /rankings or /rankings.json
   def create
-    @ranking = Ranking.new(ranking_params)
+    offered_task = current_user.offered_tasks.find(ranking_params[:task_id])
+    ranking_params = ranking_params.merge!(supplier_id: offered_task.supplier_id, beneficiary_id: offered_task.beneficiary_id)
+    @ranking = offered_task.ranking.new(ranking_params)
 
     respond_to do |format|
       if @ranking.save
