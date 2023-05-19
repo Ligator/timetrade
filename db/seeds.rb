@@ -409,201 +409,293 @@ end
 
 services = [
   {
-    description: "¡Hola a todos! Necesito ayuda para arreglar una gotera en el lavabo. Si alguien tiene experiencia en plomería y está disponible, por favor contáctame. ¡Gracias!",
+    title: "Reparación de fuga en la tubería del baño",
+    description: "Hola vecinos, necesito ayuda para solucionar una fuga en la tubería del baño. ¿Alguien con conocimientos en plomería puede ayudarme a repararlo? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 1,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para montar una TV en la pared. ¿Alguien con conocimientos en instalaciones puede echarme una mano? Agradecería mucho su ayuda. ¡Gracias!",
+    title: "Instalación de sistema de iluminación en el jardín",
+    description: "¡Hola a todos! Busco a alguien con conocimientos en electricidad para instalar un sistema de iluminación en mi jardín. Si tienes experiencia y disponibilidad, por favor contáctame. ¡Tu ayuda será muy apreciada!",
     beneficiary_id: 1,
     active: true
   },
   {
-    description: "¡Buen día! Estoy buscando a alguien que pueda dar mantenimiento a un calentador solar. Si tienes experiencia en sistemas solares y puedes ayudarme, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Reparación de puerta que no cierra correctamente",
+    description: "Hola vecinos, necesito ayuda para reparar una puerta que no cierra correctamente. Si tienes habilidades en carpintería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
     beneficiary_id: 1,
     active: true
   },
   {
-    description: "¡Hola a todos! Necesito ayuda para echar piso en mi patio. Si tienes experiencia en trabajos de construcción y estás disponible, por favor contáctame. ¡Tu ayuda será muy valorada!",
+    title: "Reparación de filtración en el techo de la habitación",
+    description: "Hola vecinos, necesito ayuda para reparar una filtración en el techo de mi habitación. ¿Alguien con conocimientos en impermeabilización puede echarme una mano? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 2,
     active: true
   },
   {
-    description: "Hola vecinos, estoy buscando a alguien que pueda ayudarme a reparar una filtración en el techo. Si tienes conocimientos en impermeabilización y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
-    beneficiary_id: 2,
-    active: true
-  },
-  {
-    description: "¡Hola a todos! Necesito ayuda para arreglar una gotera en el lavabo. Si alguien tiene experiencia en plomería y está disponible, por favor contáctame. ¡Gracias!",
+    title: "Instalación de estanterías en el estudio",
+    description: "¡Hola a todos! Estoy en busca de alguien con habilidades en bricolaje para instalar estanterías en mi estudio. Si puedes ofrecer tu ayuda, por favor contáctame. ¡Tu colaboración será muy valorada!",
     beneficiary_id: 3,
     active: true
-  }
-]
-
-services.each do |service|
-  Service.create(service)
-end
-
-services = [
+  },
   {
-    description: "¡Hola a todos! Necesito ayuda para instalar un sistema de riego en mi jardín. ¿Alguien con conocimientos en jardinería puede brindarme su asistencia? ¡Se lo agradeceré mucho!",
+    title: "Reparación de cerradura dañada en la puerta principal",
+    description: "Hola vecinos, necesito ayuda para reparar una cerradura dañada en mi puerta principal. Si tienes experiencia en cerrajería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    beneficiary_id: 3,
+    active: true
+  },
+  {
+    title: "Reparación de grieta en la pared de la sala",
+    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a reparar una grieta en la pared de mi sala. Si tienes habilidades en albañilería y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    beneficiary_id: 4,
+    active: true
+  },
+  {
+    title: "Instalación de sistema de seguridad en el hogar",
+    description: "Hola vecinos, necesito ayuda para instalar un sistema de seguridad en mi hogar. ¿Alguien con experiencia en sistemas de alarmas puede ayudarme a configurarlo? Agradecería mucho su colaboración. ¡Gracias!",
+    beneficiary_id: 5,
+    active: true
+  },
+  {
+    title: "Reparación de falla en el sistema de calefacción",
+    description: "¡Hola a todos! Necesito ayuda para reparar una falla en el sistema de calefacción de mi casa. ¿Alguien con conocimientos en climatización puede brindarme su asistencia? ¡Se lo agradeceré mucho!",
     beneficiary_id: 6,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una fuga en la tubería de agua. ¿Alguien con experiencia en plomería puede ayudarme a solucionarlo? Agradecería mucho su colaboración. ¡Gracias!",
+    title: "Instalación de sistema de cámaras de seguridad",
+    description: "Hola vecinos, necesito ayuda para instalar un sistema de cámaras de seguridad en mi propiedad. ¿Alguien con experiencia en sistemas de vigilancia puede ayudarme a configurarlo? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 6,
     active: true
   },
   {
-    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a pintar las paredes de mi casa. Si tienes habilidades en pintura y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Reparación de filtración en el techo del garaje",
+    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a solucionar una filtración en el techo de mi garaje. Si tienes habilidades en impermeabilización y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    beneficiary_id: 6,
+    active: true
+  },
+  {
+    title: "Reparación de fuga en la tubería del baño",
+    description: "Hola vecinos, necesito ayuda para solucionar una fuga en la tubería del baño. ¿Alguien con conocimientos en plomería puede ayudarme a repararlo? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 7,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una puerta que no cierra correctamente. ¿Alguien con conocimientos en carpintería puede ofrecer su asistencia? Agradecería mucho su ayuda. ¡Gracias!",
+    title: "Instalación de sistema de iluminación en el jardín",
+    description: "¡Hola a todos! Busco a alguien con conocimientos en electricidad para instalar un sistema de iluminación en mi jardín. Si tienes experiencia y disponibilidad, por favor contáctame. ¡Tu ayuda será muy apreciada!",
     beneficiary_id: 7,
     active: true
   },
   {
-    description: "¡Hola a todos! Necesito ayuda para instalar estanterías en mi garaje. Si alguien tiene habilidades en bricolaje y está disponible, por favor contáctame. ¡Tu ayuda será muy apreciada!",
+    title: "Reparación de puerta que no cierra correctamente",
+    description: "Hola vecinos, necesito ayuda para reparar una puerta que no cierra correctamente. Si tienes habilidades en carpintería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    beneficiary_id: 7,
+    active: true
+  },
+  {
+    title: "Reparación de filtración en el techo de la habitación",
+    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a reparar una filtración en el techo de mi habitación. Si tienes conocimientos en impermeabilización, por favor contáctame. ¡Te lo agradeceré mucho!",
     beneficiary_id: 8,
     active: true
   },
   {
-    description: "Hola vecinos, estoy buscando a alguien que pueda ayudarme a reparar una cerradura dañada en mi puerta principal. Si tienes experiencia en cerrajería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    title: "Instalación de estanterías en el estudio",
+    description: "Hola vecinos, necesito ayuda para instalar estanterías en mi estudio. ¿Alguien con habilidades en bricolaje puede ofrecer su asistencia? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 8,
     active: true
   },
   {
-    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a diseñar y construir un armario a medida. Si tienes habilidades en carpintería y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Pintura de la fachada de la casa",
+    description: "¡Hola vecinos! Estoy buscando a alguien con habilidades en pintura para darle un nuevo aspecto a la fachada de mi casa. Si te gusta el bricolaje y quieres ayudar, por favor contáctame. ¡Agradezco de antemano tu colaboración!",
     beneficiary_id: 9,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una filtración en el techo de mi cocina. ¿Alguien con conocimientos en impermeabilización puede echarme una mano? Agradecería mucho su ayuda. ¡Gracias!",
+    title: "Reparación de filtración en el techo de la cocina",
+    description: "Hola a todos, necesito ayuda para solucionar una filtración en el techo de mi cocina. ¿Hay alguien con experiencia en impermeabilización que pueda ayudarme? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 9,
     active: true
   },
   {
-    description: "¡Hola a todos! Necesito ayuda para cambiar el grifo de mi baño. Si alguien tiene experiencia en fontanería y está disponible, por favor contáctame. ¡Tu ayuda será muy valorada!",
+    title: "Reemplazo de enchufes y interruptores en el hogar",
+    description: "¡Hola vecinos! Estoy buscando a alguien con conocimientos en electricidad para reemplazar los enchufes y interruptores de mi hogar. Si puedes brindar tu ayuda, por favor contáctame. ¡Tu colaboración será muy apreciada!",
+    beneficiary_id: 9,
+    active: true
+  },
+  {
+    title: "Reparación de fuga en la tubería del baño",
+    description: "Hola a todos, necesito ayuda para solucionar una fuga en la tubería de mi baño. ¿Hay alguien con conocimientos en plomería que pueda ayudarme? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 10,
     active: true
-  }
-]
-
-services.each do |service|
-  Service.create(service)
-end
-
-services = [
+  },
   {
-    description: "¡Hola a todos! Necesito ayuda para reparar una falla eléctrica en mi casa. ¿Alguien con conocimientos en electricidad puede brindarme su asistencia? ¡Se lo agradeceré mucho!",
+    title: "Instalación de estanterías en el garaje",
+    description: "¡Hola vecinos! Estoy buscando a alguien con habilidades en bricolaje para instalar estanterías en mi garaje. Si puedes ofrecer tu ayuda, por favor contáctame. ¡Tu colaboración será muy valorada!",
+    beneficiary_id: 10,
+    active: true
+  },
+  {
+    title: "Reparación de persianas dañadas en las ventanas",
+    description: "Hola a todos, necesito ayuda para reparar las persianas dañadas en las ventanas de mi casa. Si tienes conocimientos en carpintería y estás disponible, por favor contáctame. ¡Agradezco de antemano tu colaboración!",
+    beneficiary_id: 10,
+    active: true
+  },
+  {
+    title: "Reparación de filtración en el techo del pasillo",
+    description: "¡Hola vecinos! Estoy buscando a alguien que pueda ayudarme a reparar una filtración en el techo del pasillo. Si tienes conocimientos en impermeabilización, por favor contáctame. ¡Te lo agradeceré mucho!",
     beneficiary_id: 11,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para instalar un sistema de seguridad en mi hogar. ¿Alguien con experiencia en sistemas de alarmas puede ayudarme a configurarlo? Agradecería mucho su colaboración. ¡Gracias!",
+    title: "Instalación de sistema de riego en el jardín",
+    description: "Hola a todos, necesito ayuda para instalar un sistema de riego en mi jardín. ¿Hay alguien con experiencia en jardinería que pueda ayudarme? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 11,
     active: true
   },
   {
-    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a reparar una grieta en la pared de mi sala. Si tienes habilidades en albañilería y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Reparación de grieta en el techo del dormitorio",
+    description: "¡Hola vecinos! Necesito ayuda para reparar una grieta en el techo de mi dormitorio. Si alguien tiene habilidades en albañilería y puede ofrecer su asistencia, por favor contácteme. ¡Agradezco de antemano su colaboración!",
     beneficiary_id: 12,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para arreglar una fuga en la tubería del baño. ¿Alguien con conocimientos en plomería puede ayudarme a solucionarlo? Agradecería mucho su colaboración. ¡Gracias!",
+    title: "Instalación de sistema de aire acondicionado",
+    description: "Hola a todos, estoy buscando a alguien con experiencia en instalaciones de aire acondicionado para instalar uno en mi hogar. Si puedes brindar tu ayuda, por favor contáctame. ¡Tu colaboración será muy apreciada!",
     beneficiary_id: 12,
     active: true
   },
   {
-    description: "¡Hola a todos! Necesito ayuda para instalar un sistema de iluminación en mi jardín. Si alguien tiene conocimientos en electricidad y está disponible, por favor contáctame. ¡Tu ayuda será muy apreciada!",
+    title: "Reparación de fuga en la tubería del baño",
+    description: "¡Hola vecinos! Necesito ayuda para solucionar una fuga en la tubería del baño. ¿Hay alguien con conocimientos en plomería que pueda ayudarme? Agradecería mucho su colaboración. ¡Gracias!",
+    beneficiary_id: 12,
+    active: true
+  },
+  {
+    title: "Instalación de sistema de iluminación en el patio trasero",
+    description: "Hola a todos, necesito ayuda para instalar un sistema de iluminación en mi patio trasero. Si tienes conocimientos en electricidad y estás disponible, por favor contáctame. ¡Agradezco de antemano tu colaboración!",
     beneficiary_id: 13,
     active: true
   },
   {
-    description: "Hola vecinos, estoy buscando a alguien que pueda ayudarme a reparar una puerta que no cierra correctamente. Si tienes experiencia en carpintería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    title: "Reparación de puerta que no cierra correctamente",
+    description: "¡Hola vecinos! Estoy buscando a alguien que pueda ayudarme a reparar una puerta que no cierra correctamente. Si tienes habilidades en carpintería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
     beneficiary_id: 13,
     active: true
   },
   {
-    description: "¡Buen día! Estoy buscando a alguien que pueda ayudarme a pintar las paredes de mi sala. Si tienes habilidades en pintura y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Limpieza y mantenimiento del jardín",
+    description: "Hola a todos, necesito ayuda para limpiar y mantener mi jardín. Si alguien tiene habilidades en jardinería y puede brindar su asistencia, por favor contácteme. ¡Agradezco de antemano su colaboración!",
+    beneficiary_id: 13,
+    active: true
+  },
+  {
+    title: "Reparación de filtración en el techo de la cocina",
+    description: "¡Hola vecinos! Estoy buscando a alguien que pueda ayudarme a reparar una filtración en el techo de mi cocina. Si tienes conocimientos en impermeabilización, por favor contáctame. ¡Te lo agradeceré mucho!",
     beneficiary_id: 14,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una filtración en el techo de mi habitación. ¿Alguien con conocimientos en impermeabilización puede echarme una mano? Agradecería mucho su ayuda. ¡Gracias!",
+    title: "Instalación de estanterías en la sala",
+    description: "Hola a todos, necesito ayuda para instalar estanterías en mi sala. Si tienes habilidades en bricolaje y estás disponible, por favor contáctame. ¡Tu colaboración será muy valorada!",
     beneficiary_id: 14,
     active: true
   },
   {
-    description: "¡Hola a todos! Necesito ayuda para instalar estanterías en mi estudio. Si alguien tiene habilidades en bricolaje y está disponible, por favor contáctame. ¡Tu ayuda será muy valorada!",
+    title: "Reparación de filtración en el techo del baño",
+    description: "¡Hola vecinos! Necesito ayuda para solucionar una filtración en el techo de mi baño. Si alguien tiene experiencia en impermeabilización y puede ofrecer su asistencia, por favor contácteme. ¡Agradezco de antemano su colaboración!",
     beneficiary_id: 15,
     active: true
   },
   {
-    description: "Hola vecinos, estoy buscando a alguien que pueda ayudarme a reparar una cerradura dañada en mi puerta principal. Si tienes experiencia en cerrajería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    title: "Instalación de sistema de seguridad en el hogar",
+    description: "Hola a todos, estoy buscando a alguien con experiencia en sistemas de seguridad para instalar uno en mi hogar. Si puedes brindar tu ayuda, por favor contáctame. ¡Tu colaboración será muy apreciada!",
     beneficiary_id: 15,
     active: true
-  }
-]
-
-services.each do |service|
-  Service.create(service)
-end
-
-services = [
+  },
   {
-    description: "¡Hola a todos! Necesito ayuda para reparar una falla en el sistema de calefacción de mi casa. ¿Alguien con conocimientos en climatización puede brindarme su asistencia? ¡Se lo agradeceré mucho!",
+    title: "Reparación de grieta en la pared de la sala",
+    description: "¡Hola vecinos! Necesito ayuda para reparar una grieta en la pared de mi sala. Si alguien tiene habilidades en albañilería y puede ofrecer su asistencia, por favor contácteme. ¡Agradezco de antemano su colaboración!",
+    beneficiary_id: 15,
+    active: true
+  },
+  {
+    title: "Reparación de fuga en la tubería del baño",
+    description: "Hola a todos, necesito ayuda para solucionar una fuga en la tubería del baño. ¿Hay alguien con conocimientos en plomería que pueda ayudarme? Agradecería mucho su colaboración. ¡Gracias!",
     beneficiary_id: 16,
     active: true
   },
   {
-    description: "¡Hola a todos! Estoy buscando a alguien con experiencia en sistemas de vigilancia para instalar un sistema de cámaras de seguridad en mi propiedad. Si puedes ayudarme a configurarlo, te estaré muy agradecido. ¡Gracias!",
+    title: "Instalación de estanterías en el garaje",
+    description: "¡Hola vecinos! Estoy buscando a alguien con habilidades en bricolaje para instalar estanterías en mi garaje. Si puedes ofrecer tu ayuda, por favor contáctame. ¡Tu colaboración será muy valorada!",
     beneficiary_id: 16,
     active: true
   },
   {
-    description: "¡Buen día! Necesito urgentemente a alguien que pueda solucionar una filtración en el techo de mi garaje. Si tienes habilidades en impermeabilización y estás disponible, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Reparación de persianas dañadas en las ventanas",
+    description: "Hola a todos, necesito ayuda para reparar las persianas dañadas en las ventanas de mi casa. Si tienes conocimientos en carpintería y estás disponible, por favor contáctame. ¡Agradezco de antemano tu colaboración!",
+    beneficiary_id: 16,
+    active: true
+  },
+  {
+    title: "Instalación de sistema de iluminación en el jardín",
+    description: "¡Hola vecinos! Estoy buscando a alguien que pueda ayudarme a instalar un sistema de iluminación en mi jardín. Si tienes conocimientos en electricidad, por favor contáctame. ¡Te lo agradeceré mucho!",
     beneficiary_id: 17,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para solucionar una fuga en la tubería del baño. ¿Alguien con conocimientos en plomería puede ayudarme a repararlo? Agradecería mucho su colaboración. ¡Gracias!",
+    title: "Reparación de filtración en el techo del salón",
+    description: "Hola a todos, necesito ayuda para reparar una filtración en el techo de mi salón. Si alguien tiene conocimientos en impermeabilización y puede brindar su asistencia, por favor contácteme. ¡Agradezco de antemano su colaboración!",
     beneficiary_id: 17,
     active: true
   },
   {
-    description: "¡Hola a todos! Busco a alguien con conocimientos en electricidad para instalar un sistema de iluminación en mi jardín. Si tienes experiencia y disponibilidad, por favor contáctame. ¡Tu ayuda será muy apreciada!",
+    title: "Reparación de grieta en la pared del dormitorio",
+    description: "¡Hola vecinos! Necesito ayuda para reparar una grieta en la pared de mi dormitorio. Si alguien tiene habilidades en albañilería y puede ofrecer su asistencia, por favor contácteme. ¡Agradezco de antemano su colaboración!",
     beneficiary_id: 18,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una puerta que no cierra correctamente. Si tienes habilidades en carpintería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    title: "Instalación de sistema de calefacción",
+    description: "Hola a todos, estoy buscando a alguien con experiencia en instalaciones de calefacción para instalar un sistema en mi hogar. Si puedes brindar tu ayuda, por favor contáctame. ¡Tu colaboración será muy apreciada!",
     beneficiary_id: 18,
     active: true
   },
   {
-    description: "¡Buen día! Estoy buscando a alguien con habilidades en pintura para darle vida a las paredes de mi sala. Si estás disponible y quieres ayudarme, por favor contáctame. ¡Te lo agradeceré mucho!",
+    title: "Reparación de fuga en la tubería del baño",
+    description: "¡Hola vecinos! Necesito ayuda para solucionar una fuga en la tubería del baño. ¿Hay alguien con conocimientos en plomería que pueda ayudarme? Agradecería mucho su colaboración. ¡Gracias!",
+    beneficiary_id: 18,
+    active: true
+  },
+  {
+    title: "Instalación de sistema de riego en el jardín",
+    description: "Hola a todos, necesito ayuda para instalar un sistema de riego en mi jardín. Si tienes experiencia en jardinería y estás disponible, por favor contáctame. ¡Agradezco de antemano tu colaboración!",
     beneficiary_id: 19,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una filtración en el techo de mi habitación. ¿Alguien con conocimientos en impermeabilización puede echarme una mano? Agradecería mucho su colaboración. ¡Gracias!",
+    title: "Reparación de filtración en el techo de la cocina",
+    description: "¡Hola vecinos! Estoy buscando a alguien que pueda ayudarme a reparar una filtración en el techo de mi cocina. Si tienes conocimientos en impermeabilización, por favor contáctame. ¡Te lo agradeceré mucho!",
     beneficiary_id: 19,
     active: true
   },
   {
-    description: "¡Hola a todos! Estoy en busca de alguien con habilidades en bricolaje para instalar estanterías en mi estudio. Si puedes ofrecer tu ayuda, por favor contáctame. ¡Tu colaboración será muy valorada!",
+    title: "Limpieza y organización del sótano",
+    description: "Hola a todos, necesito ayuda para limpiar y organizar mi sótano. Si alguien tiene habilidades en limpieza y está disponible, por favor contácteme. ¡Agradezco de antemano su colaboración!",
+    beneficiary_id: 19,
+    active: true
+  },
+  {
+    title: "Reparación de filtración en el techo del salón",
+    description: "¡Hola vecinos! Estoy buscando a alguien que pueda ayudarme a reparar una filtración en el techo de mi salón. Si tienes conocimientos en impermeabilización, por favor contáctame. ¡Te lo agradeceré mucho!",
     beneficiary_id: 20,
     active: true
   },
   {
-    description: "Hola vecinos, necesito ayuda para reparar una cerradura dañada en mi puerta principal. Si tienes experiencia en cerrajería y puedes ofrecer tu asistencia, por favor contáctame. ¡Gracias de antemano!",
+    title: "Instalación de estanterías en la oficina",
+    description: "Hola a todos, necesito ayuda para instalar estanterías en mi oficina. Si tienes habilidades en bricolaje y estás disponible, por favor contáctame. ¡Tu colaboración será muy valorada!",
     beneficiary_id: 20,
     active: true
-  }
+  },
 ]
 
 services.each do |service|
