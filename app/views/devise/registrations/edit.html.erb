@@ -36,8 +36,27 @@
   </div>
 <% end %>
 
+<%= link_to "Request Service", new_service_path %>
+<%= link_to "Offer Service", new_service_path(service_type: "offered") %>
+
 <h3>Cancel my account</h3>
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+
+<div>
+  <h2>Offered Services</h2>
+  <% resource.offered_services.each do |service| %>
+    <h4><%= service.description %></h4>
+    <%= link_to "Show this service", service %>
+  <% end %>
+</div>
+
+<div>
+  <h2>Request Services</h2>
+  <% resource.requested_services.each do |service| %>
+    <h4><%= service.description %></h4>
+    <%= link_to "Show this service", service %>
+  <% end %>
+</div>

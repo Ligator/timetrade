@@ -21,7 +21,14 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
+    service = Service.find_by_id(task_params[:service_id])
+
+    return if current_user.id == service.beneficiary_id || current_user.id == service.supplier_id
+
+    beneficiary_id = service.beneficiary_id.presence || current_user.id
+    supplier_id = service.supplier_id.presence || current_user.id
+    params_to_save = task_params.merge!(beneficiary_id: beneficiary_id, supplier_id: supplier_id, description: service.description)
+    @task = service.tasks.new(params_to_save)
 
     respond_to do |format|
       if @task.save
@@ -65,6 +72,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:beneficiary_id, :supplier_id, :time, :state, :scheduled_at, :service_id, :description)
+      params.require(:task).permit(:time, :state, :scheduled_at, :service_id)
     end
 end

@@ -8,3 +8,15 @@
 
   <%= button_to "Destroy this task", @task, method: :delete %>
 </div>
+<div>
+  <%= form_tag(action: "create", controller: "rankings", html: { method: :post }) do %>
+    <%= hidden_field_tag "ranking[task_id]", @task.id %>
+    <div>
+      <%= label_tag "ranking[score]", "Supplier Score" %>
+      <%= text_field_tag "ranking[score]" %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Complete Task" %>
+    </div>
+  <% end %>
+</div>

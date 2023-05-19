@@ -21,13 +21,18 @@ class RankingsController < ApplicationController
 
   # POST /rankings or /rankings.json
   def create
-    offered_task = current_user.offered_tasks.find(ranking_params[:task_id])
-    ranking_params = ranking_params.merge!(supplier_id: offered_task.supplier_id, beneficiary_id: offered_task.beneficiary_id)
-    @ranking = offered_task.ranking.new(ranking_params)
+    requested_task = current_user.requested_tasks.find_by_id(ranking_params[:task_id])
+
+    return if requested_task.nil?
+
+    beneficiary_id = requested_task.beneficiary_id.presence || current_user.id
+    supplier_id = requested_task.supplier_id.presence || current_user.id
+    params_to_save = ranking_params.merge!(supplier_id: supplier_id, beneficiary_id: beneficiary_id)
+    @ranking = requested_task.build_ranking(params_to_save)
 
     respond_to do |format|
       if @ranking.save
-        format.html { redirect_to ranking_url(@ranking), notice: "Ranking was successfully created." }
+        format.html { redirect_to task_path(requested_task), notice: "Ranking was successfully created." }
         format.json { render :show, status: :created, location: @ranking }
       else
         format.html { render :new, status: :unprocessable_entity }

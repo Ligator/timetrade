@@ -12,7 +12,11 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
-    @service = Service.new
+    if params[:service_type] == "offered"
+      @service = current_user.offered_services.new
+    else
+      @service = current_user.requested_services.new
+    end
   end
 
   # GET /services/1/edit
@@ -25,7 +29,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
+        format.html { redirect_to edit_user_registration_path, notice: "Service was successfully created." }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new, status: :unprocessable_entity }
