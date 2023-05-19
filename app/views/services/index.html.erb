@@ -1,13 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Services</h1>
-
 <div id="services">
-  <% @services.each do |service| %>
-    <%= render service %>
-    <p>
-      <%= link_to "Show this service", service %>
-    </p>
+  <% @group_services.each do |five_service| %>
+  <h1>group</h1>
+    <% five_service.each do |service| %>
+      <%= service.description %>
+      <%= service.id %>
+      <p>
+        <%= link_to "Show this service", service %>
+      </p>
+    <% end %>  
   <% end %>
 </div>
 
