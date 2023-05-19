@@ -51,7 +51,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: 'timetrade' (Development)
+  app_name: 'timetrade'
 
 test:
   <<: *default_settings
@@ -60,7 +60,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: 'timetrade' (Staging)
+  app_name: 'timetrade'
 
 production:
   <<: *default_settings
