@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  beneficiary_id: 
+  supplier_id: 
+  time: 
+  state: MyString
+  scheduled_at: 2023-05-19 03:07:54
+  service_id: 
+  description: MyText
+
+two:
+  beneficiary_id: 
+  supplier_id: 
+  time: 
+  state: MyString
+  scheduled_at: 2023-05-19 03:07:54
+  service_id: 
+  description: MyText
