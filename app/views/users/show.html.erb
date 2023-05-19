@@ -1,0 +1,29 @@
+
+<h1>Perfil de Usuario</h1>
+<h3>Nombre: <%= @user.firstname %> <%= @user.lastname %></h3>
+<h3>Fecha de nacimiento: <%= @user.birthday %></h3>
+<h3>email: <%= @user.email %></h3>
+<h3>Género: <%= @user.gender %></h3>
+<h3>Teléfono: <%= @user.phone %></h3>
+<h3>User id: <%= @user.id %></h3>
+<div><%= link_to "Editar Perfil", edit_user_registration_path %></div>
+
+<div>
+  <h2>Offered Services</h2>
+  <% @user.offered_services.each do |service| %>
+    <h4><%= service.description %></h4>
+    <h4><%= service.supplier_id%></h4>
+    <%= link_to "Show this service", service %>
+  <% end %>
+</div>
+
+<div>
+  <h2>Request Services</h2>
+  <% @user.requested_services.each do |service| %>
+    <h4><%= service.description %></h4>
+    <h4><%= service.beneficiary_id%></h4>
+    <%= link_to "Show this service", service %>
+  <% end %>
+</div>
+
+<%= link_to "Back", :back %>
