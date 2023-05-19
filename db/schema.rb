@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_075717) do
     t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active"
+    t.boolean "active", default: true
   end
 
   create_table "users", force: :cascade do |t|
