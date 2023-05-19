@@ -22,7 +22,12 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     service = Service.find_by_id(task_params[:service_id])
-    params_to_save = task_params.merge!(beneficiary_id: service.beneficiary_id, supplier_id: service.supplier_id, description: service.description)
+
+    return if current_user.id == service.beneficiary_id || service.supplier_id
+
+    beneficiary_id = service.beneficiary_id.presence || current_user.id
+    supplier_id = service.supplier_id.presence || current_user.id
+    params_to_save = task_params.merge!(beneficiary_id: beneficiary_id, supplier_id: supplier_id, description: service.description)
     @task = service.tasks.new(params_to_save)
 
     respond_to do |format|
