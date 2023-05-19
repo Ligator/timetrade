@@ -12,7 +12,9 @@ class RankingsController < ApplicationController
 
   # GET /rankings/new
   def new
-    @ranking = Ranking.new
+    offered_task = current_user.offered_tasks.find(ranking_params[:task_id])
+    ranking_params = ranking_params.merge!(supplier_id: offered_task.supplier_id, beneficiary_id: offered_task.beneficiary_id)
+    @ranking = offered_task.ranking.new(ranking_params)
   end
 
   # GET /rankings/1/edit
@@ -65,6 +67,6 @@ class RankingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ranking_params
-      params.require(:ranking).permit(:supplier_id, :beneficiary_id, :comment, :score, :task_id)
+      params.require(:ranking).permit(:comment, :score, :task_id)
     end
 end
