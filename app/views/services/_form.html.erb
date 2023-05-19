@@ -1,4 +1,6 @@
 <%= form_with(model: service) do |form| %>
+  <%= form.hidden_field :beneficiary_id %>
+  <%= form.hidden_field :supplier_id %>
   <% if service.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>

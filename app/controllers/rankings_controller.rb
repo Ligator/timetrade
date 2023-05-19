@@ -32,7 +32,7 @@ class RankingsController < ApplicationController
 
     respond_to do |format|
       if @ranking.save
-        format.html { redirect_to ranking_url(@ranking), notice: "Ranking was successfully created." }
+        format.html { redirect_to task_path(requested_task), notice: "Ranking was successfully created." }
         format.json { render :show, status: :created, location: @ranking }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   def create
     service = Service.find_by_id(task_params[:service_id])
 
-    return if current_user.id == service.beneficiary_id || service.supplier_id
+    return if current_user.id == service.beneficiary_id || current_user.id == service.supplier_id
 
     beneficiary_id = service.beneficiary_id.presence || current_user.id
     supplier_id = service.supplier_id.presence || current_user.id

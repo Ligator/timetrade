@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
+        format.html { redirect_to edit_user_registration_path, notice: "Service was successfully created." }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new, status: :unprocessable_entity }
