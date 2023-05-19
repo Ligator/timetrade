@@ -12,7 +12,11 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
-    @service = Service.new
+    if params[:service_type] == "offered"
+      @service = current_user.offered_services.new
+    else
+      @service = current_user.requested_services.new
+    end
   end
 
   # GET /services/1/edit

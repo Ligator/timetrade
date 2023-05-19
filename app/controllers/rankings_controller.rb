@@ -21,9 +21,9 @@ class RankingsController < ApplicationController
 
   # POST /rankings or /rankings.json
   def create
-    requested_task = current_user.requested_tasks.find(ranking_params[:task_id])
+    requested_task = current_user.requested_tasks.find_by_id(ranking_params[:task_id])
     params_to_save = ranking_params.merge!(supplier_id: requested_task.supplier_id, beneficiary_id: requested_task.beneficiary_id)
-    @ranking = requested_task.ranking.new(params_to_save)
+    @ranking = requested_task.build_ranking(params_to_save)
 
     respond_to do |format|
       if @ranking.save
