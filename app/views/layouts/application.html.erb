@@ -11,8 +11,8 @@
   </head>
 
   <body>
+    <%= link_to "Perfil", users_show_path %>
     <%= link_to "Inicio", root_path %>
-    <%= link_to "Perfil", edit_user_registration_path %>
     <%= link_to "Salir", destroy_user_session_path, method: :delete %>
     <%= yield %>
   </body>
