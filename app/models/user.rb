@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :requested_tasks, class_name: "Task", foreign_key: "beneficiary_id"
   has_many :requested_services, class_name: "Service", foreign_key: "beneficiary_id"
   has_many :offered_services, class_name: "Service", foreign_key: "supplier_id"
+
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :birthday, presence: true
+  validates :gender, presence: true
 end
