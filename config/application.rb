@@ -25,13 +25,5 @@ module Timetrade
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
-
-
-    # config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
-    #   allow do
-    #     origins '*'
-    #     resource '*', headers: :any, methods: [:get, :post, :delete, :put, :options]
-    #   end
-    # end
   end
 end
