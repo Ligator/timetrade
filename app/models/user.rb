@@ -13,4 +13,31 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   validates :birthday, presence: true
   validates :gender, presence: true
+
+  def insigths
+    {
+      average_score: average_score,
+      offered_hours: offered_hours,
+      requested_hours: requested_hours,
+      hours_balance: hours_balance,
+    }
+  end
+
+  def average_score
+    return 0 if rankings.blank?
+
+    rankings.sum(&:score).to_i / rankings.count.to_i
+  end
+
+  def offered_hours
+    offered_tasks.sum(&:time).to_i
+  end
+
+  def requested_hours
+    requested_tasks.sum(&:time).to_i
+  end
+
+  def hours_balance
+    offered_hours - requested_hours
+  end
 end
