@@ -15,7 +15,6 @@ class User < ApplicationRecord
 
   validates :firstname, presence: true
   validates :lastname, presence: true
-  validates :birthday, presence: true
   validates :gender, presence: true
 
   def insigths
