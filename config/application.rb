@@ -21,8 +21,8 @@ module Timetrade
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://timetrade.vercel.app'
-        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+        origins 'timetrade.vercel.app'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :head, :options]
       end
     end
   end
