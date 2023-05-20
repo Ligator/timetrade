@@ -3,5 +3,5 @@ class Ranking < ApplicationRecord
   belongs_to :supplier, class_name: "User", foreign_key: "supplier_id", optional: true
   belongs_to :task
 
-  validates :score, numericality: { only_integer: true, greater_than: 0 }
+  validates :score, numericality: true
 end
