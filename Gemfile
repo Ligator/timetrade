@@ -49,6 +49,8 @@ gem 'devise'
 gem "awesome_print"
 gem "newrelic_rpm"
 
+gem "rack-cors"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

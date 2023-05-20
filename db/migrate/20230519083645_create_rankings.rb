@@ -5,7 +5,6 @@ class CreateRankings < ActiveRecord::Migration[7.0]
       t.bigint :beneficiary_id
       t.string :comment
       t.integer :score
-      t.bigint :task_id
 
       t.timestamps
     end
