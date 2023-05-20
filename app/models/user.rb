@@ -33,11 +33,11 @@ class User < ApplicationRecord
   end
 
   def offered_hours
-    offered_tasks.sum(&:time).to_i
+    offered_tasks.where(state: "complete").sum(&:time).to_i
   end
 
   def requested_hours
-    requested_tasks.sum(&:time).to_i
+    requested_tasks.where(state: "complete").sum(&:time).to_i
   end
 
   def hours_balance
