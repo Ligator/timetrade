@@ -17,7 +17,6 @@ class ServicesTest < ApplicationSystemTestCase
     fill_in "Beneficiary", with: @service.beneficiary_id
     fill_in "Description", with: @service.description
     fill_in "Supplier", with: @service.supplier_id
-    fill_in "Task", with: @service.task_id
     click_on "Create Service"
 
     assert_text "Service was successfully created"
@@ -31,7 +30,6 @@ class ServicesTest < ApplicationSystemTestCase
     fill_in "Beneficiary", with: @service.beneficiary_id
     fill_in "Description", with: @service.description
     fill_in "Supplier", with: @service.supplier_id
-    fill_in "Task", with: @service.task_id
     click_on "Update Service"
 
     assert_text "Service was successfully updated"

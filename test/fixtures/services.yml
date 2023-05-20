@@ -4,10 +4,8 @@ one:
   description: MyString
   beneficiary_id: 
   supplier_id: 
-  task_id: 
 
 two:
   description: MyString
   beneficiary_id: 
   supplier_id: 
-  task_id: 
