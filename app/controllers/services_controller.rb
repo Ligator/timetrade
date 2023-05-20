@@ -26,11 +26,11 @@ class ServicesController < ApplicationController
 
   # POST /services or /services.json
   def create
-    @service = Service.new(service_params)  
+    @service = Service.new(service_params)
     if params[:service][:service_type] == "offered"
-      @service.beneficiary_id = current_user.id
-    else
       @service.supplier_id = current_user.id
+    else
+      @service.beneficiary_id = current_user.id
     end
 
     respond_to do |format|
@@ -46,6 +46,7 @@ class ServicesController < ApplicationController
 
   # PATCH/PUT /services/1 or /services/1.json
   def update
+    binding.pry
     respond_to do |format|
       if @service.update(service_params)
         format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
