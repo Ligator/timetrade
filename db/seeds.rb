@@ -701,3 +701,6 @@ services = [
 services.each do |service|
   Service.create(service)
 end
+
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+ActiveRecord::Base.connection.reset_pk_sequence!('services')
