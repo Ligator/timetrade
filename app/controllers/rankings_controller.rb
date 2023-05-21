@@ -32,6 +32,7 @@ class RankingsController < ApplicationController
 
     respond_to do |format|
       if @ranking.save
+        requested_task.update(state: "complete")
         format.html { redirect_to task_path(requested_task), notice: "Ranking was successfully created." }
         format.json { render :show, status: :created, location: @ranking }
       else
