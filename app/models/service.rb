@@ -4,6 +4,22 @@ class Service < ApplicationRecord
 
   has_many :tasks
 
-  validates :title, presence: true
+  # validates :title, presence: true
   validates :description, presence: true
+
+  def kind
+    if beneficiary_id.present?
+      "requested"
+    else
+      "offered"
+    end
+  end
+
+  def owner
+    if beneficiary_id.present?
+     User.find(beneficiary_id)
+    else
+      User.find(supplier_id)
+    end
+  end
 end
