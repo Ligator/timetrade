@@ -1,6 +1,6 @@
 <%= link_to service_path(service), class: "link-card card h-100 text-decoration-none text-dark" do %>
   <div class="card-body">
     <h5 class="font-title"><%= service.title.truncate(50) %></h5>
-    <p class="font-service"><%= service.description.truncate(300) %></p>
+    <span class="font-description text-muted"><%= service.description.truncate(300) %></span>
   </div>
 <% end %>
