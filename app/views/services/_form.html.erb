@@ -13,12 +13,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= form.label :title, class: "d-none" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Título" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :description, class: "d-none" %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Descripción" %>
+  </div>
+
+  <div class="form-group text-right">
+    <%= form.submit "Crear/Actualizar", class: "btn btn-primary" %>
   </div>
 <% end %>

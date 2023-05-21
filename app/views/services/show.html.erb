@@ -1,30 +1,36 @@
-<p style="color: green"><%= notice %></p>
-<div class="col-sm-8 mx-auto mt-5">
-  <div class="card h-100 mb-5">
-    <div class="card-body">
-      <h5><%= @service.title %></h5>
-     <div><%= @service.description %></div>
-      <div><%= @service.id %></div>
-      <div class="text-right">
-        <%= link_to "Edit", edit_service_path(@service) %>
+<div class="row my-5">
+  <div class="col-12">
+    <h2><%= @service.title %></h2>
+  </div>
+  <div class="col-8">
+    <div class="card h-100 mb-5">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted text-right"><%= service_kind(@service) %></h6>
+        <div><%= @service.description %></div>
+        <div class="text-right">
+          <%= link_to "Edit", edit_service_path(@service) %>
+        </div>
       </div>
     </div>
   </div>
-
-
-
-  <%= form_tag(action: "create", controller: "tasks", html: { method: :post }) do %>
-    <%= hidden_field_tag "task[service_id]", @service.id %>
-      <div  class="row">
-        <div class="col-9">
-          <%= text_field_tag "task[time]", "",class: "col", placeholder:"Tiempo estimado (opcional)" %>
+  <div class="col-4">
+    <%= form_with(model: [@service, Task.new]) do |form| %>
+      <div  class="row text-right">
+        <div class="col-12">
+          <%= form.text_field :time, class: "form-control", placeholder: "Tiempo estimado" %>
         </div>
-        <div class="col-3 pl-0">
-          <%= submit_tag "Apply", class: "btn btn-primary" %>
+        <div class="col-12">
+          <%= form.submit "Solicitar servicio", class: "btn btn-primary mt-2" %>
         </div>
       </div>
-  <% end %>
-  <%= render @task %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+    <% @tasks.each do |task| %>
+      <%= render task %>
+    <% end %>
 </div>
 
 <div class="row">
@@ -41,7 +47,7 @@
         </div>
         <div class="col-md-9">
 
-        <%= form_with(model: Comment.new) do |form| %>
+        <%= form_with(model: [@service, Comment.new]) do |form| %>
           <div class="text-right">
             <%= form.text_area :content, class: "form-control" %>
             <%= form.submit "Crear comentario", class: "btn btn-primary mt-2" %>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :comments
   get 'users/index'
   get 'users/show'
-  resources :tasks
   resources :rankings
-  resources :services
+  resources :services do
+    resources :comments
+    resources :tasks
+  end
 
   devise_for :users, controllers: {
     sessions: "users/sessions",

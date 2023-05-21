@@ -8,7 +8,7 @@
 
     <div class="col-md-8">
       <div class="profile-head">
-        <h4><%= @user.firstname %> <%= @user.lastname %></h4>
+        <h3><%= @user.full_name %></h3>
         <h6><%= distance_of_time_in_words(@user.hours_balance).capitalize %></h6>
 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -131,7 +131,17 @@
 </div>
 
 <div class="row">
-  <h4 class="my-3 text-muted">Servicios solicitados</h2>
+  <div class="col-12">
+    <div class="row justify-content-between">
+      <div class="col-3">
+        <h4 class="my-3 text-muted">Servicios solicitados</h2>
+      </div>
+      <div class="col-3 text-right p-0">
+        <%= link_to "+ Nueva Petición", new_service_path(service_type: "requested"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
   <div class="row row-cols-3 p-2">
     <% @user.requested_services.each_with_index do |service| %>
       <div class="slider-card rounded">
@@ -143,7 +153,17 @@
 </div>
 
 <div class="row">
-  <h4 class="my-3 text-muted">Servicios ofrecidos</h2>
+  <div class="col-12">
+    <div class="row justify-content-between">
+      <div class="col-3">
+        <h4 class="my-3 text-muted">Servicios ofrecidos</h2>
+      </div>
+      <div class="col-3 text-right p-0">
+        <%= link_to "+ Nueva Oferta", new_service_path(service_type: "offered"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
   <div class="row row-cols-3 p-2">
     <% @user.offered_services.each_with_index do |service| %>
       <div class="slider-card rounded">

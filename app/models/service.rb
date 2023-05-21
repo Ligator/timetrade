@@ -16,6 +16,14 @@ class Service < ApplicationRecord
     end
   end
 
+  def requested?
+    beneficiary_id.present?
+  end
+
+  def offered?
+    supplier_id.present?
+  end
+
   def owner
     if beneficiary_id.present?
       User.find(beneficiary_id)
