@@ -19,6 +19,10 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   validates :gender, presence: true
 
+  def full_name
+    "#{firstname} #{lastname}"
+  end
+
   def insigths
     {
       average_score: average_score,
