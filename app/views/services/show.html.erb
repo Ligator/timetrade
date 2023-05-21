@@ -1,23 +1,28 @@
-<%= render @service %>
+<p style="color: green"><%= notice %></p>
+<div class="col-sm-8 mx-auto mt-5">
+  <div class="card h-100 mb-5">
+    <div class="card-body">
+      <h5><%= @service.title %></h5>
+     <div><%= @service.description %></div>
+      <div><%= @service.id %></div>
+      <div class="text-right">
+        <%= link_to "Edit", edit_service_path(@service) %>
+      </div>
+    </div>
+  </div>
 
-<h1>tasks</h1>
 
-<%= render @task %>
 
-<div>
-  <%= link_to "Edit this service", edit_service_path(@service) %> |
-  <%= link_to "Back to services", services_path %> |
   <%= form_tag(action: "create", controller: "tasks", html: { method: :post }) do %>
     <%= hidden_field_tag "task[service_id]", @service.id %>
-    <div>
-      <%= label_tag "task[time]", "Time" %>
-      <%= text_field_tag "task[time]" %>
-    </div>
-
-    <div class="actions">
-      <%= submit_tag "Apply" %>
-    </div>
+      <div  class="row">
+        <div class="col-9">
+          <%= text_field_tag "task[time]", "",class: "col", placeholder:"Tiempo estimado (opcional)" %>
+        </div>
+        <div class="col-3 pl-0">
+          <%= submit_tag "Apply", class: "col" %>
+        </div>
+      </div>
   <% end %>
-
-  <%= button_to "Destroy this service", @service, method: :delete %>
+  <%= render @task %>
 </div>
