@@ -4,7 +4,8 @@ class ServicesController < ApplicationController
   # GET /services or /services.json
   def index
     @services = Service.all
-    @group_services = @services.shuffle.in_groups_of(5, false).slice(0, 3)
+    @group_services = @services.shuffle.in_groups_of(15, false).slice(0, 3)
+    @group_names = ["Hoy", "Recientemente Agregados", "Mas Antiguos"]
   end
 
   # GET /services/1 or /services/1.json

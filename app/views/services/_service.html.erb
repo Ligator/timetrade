@@ -1,16 +1,12 @@
-<div id="<%= dom_id service %>">
-  <p>
-    <strong>Description:</strong>
-    <%= service.description %>
-  </p>
-
-  <p>
-    <strong>Beneficiary:</strong>
-    <%= service.beneficiary_id %>
-  </p>
-
-  <p>
-    <strong>Supplier:</strong>
-    <%= service.supplier_id %>
-  </p>
+<div class="col">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5><%= service.title.truncate(50) %></h5>
+      <%= service.description.truncate(200) %>
+      <%= service.id %>
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+      <%= link_to "Show this service", service, type: "button", class: "btn btn-info" %>
+    </div>
+  </div>
 </div>

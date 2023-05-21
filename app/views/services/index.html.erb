@@ -1,17 +1,47 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Services</h1>
-<div id="services">
-  <% @group_services.each do |five_service| %>
-  <h1>group</h1>
-    <% five_service.each do |service| %>
-      <%= service.description %>
-      <%= service.id %>
-      <p>
-        <%= link_to "Show this service", service %>
-      </p>
-    <% end %>  
-  <% end %>
+<div id="services" class="card">
+  <div class="card-body">
+    <% @group_services.each_with_index do |five_service, index| %>
+      <div class="row row-cols-1">
+        <div class="col p-3">
+          <h2><%= @group_names[index] %></h2>
+          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner" style="height: 350px;">
+              <div class="col p-2">
+                <% active = "active" %>
+                <% five_service.each_slice(3) do |services| %>
+                  <div class="carousel-item <%= active %> bg-light p-2 rounded-lg">
+                    <div class="row row-cols-3 p-2">
+                      <% services.each_with_index do |service| %>
+                        <%= render service %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <% active = "" %>
+                <% end %>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleFade" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleFade" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to "New service", new_service_path %>
+
+<script type="text/javascript">
+  $('.carousel').carousel({
+    interval: 3000;
+  })
+</script>
