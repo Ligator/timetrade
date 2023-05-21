@@ -1,28 +1,153 @@
-<h1>Perfil de Usuario</h1>
-<h3>Nombre: <%= @user.firstname %> <%= @user.lastname %></h3>
-<h3>Fecha de nacimiento: <%= @user.birthday %></h3>
-<h3>email: <%= @user.email %></h3>
-<h3>Género: <%= @user.gender %></h3>
-<h3>Teléfono: <%= @user.phone %></h3>
-<h3>User id: <%= @user.id %></h3>
-<div><%= link_to "Editar Perfil", edit_user_registration_path %></div>
+<div class="my-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+        <%= image_tag @user.gravatar_url(d: "identicon", s: "300"), class: "img-fluid" %>
+      </div>
+    </div>
 
-<div>
-  <h2>Offered Services</h2>
-  <% @user.offered_services.each do |service| %>
-    <h4><%= service.description %></h4>
-    <h4><%= service.supplier_id%></h4>
-    <%= link_to "Show this service", service %>
-  <% end %>
+    <div class="col-md-8">
+      <div class="profile-head">
+        <h4><%= @user.firstname %> <%= @user.lastname %></h4>
+        <h6><%= distance_of_time_in_words(@user.hours_balance).capitalize %></h6>
+
+        <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Estadísticas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Detalles</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content profile-tab my-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Saldo</label>
+            </div>
+            <div class="col-md-6">
+              <p><%= @user.hours_balance %> Horas</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Servico prestado</label>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <p><%= @user.offered_hours %> Horas</p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <p><%= @user.offered_tasks.where(state: "complete").count %> veces</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Servico consumido</label>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <p><%= @user.requested_hours %> Horas</p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <p><%= @user.requested_tasks.where(state: "complete").count %> veces</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Score</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.average_score %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Miembro desde</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= l @user.created_at, format: "%-d de %B de %Y" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Nombre</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.firstname %> <%= @user.lastname %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Fecha de nacimiento</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.birthday %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Email</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.email %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Género</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.gender %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>Teléfono</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.phone %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <label>User id</label>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <p><%= @user.id %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <%= link_to "Editar mi información", edit_user_registration_path, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-  <h2>Request Services</h2>
-  <% @user.requested_services.each do |service| %>
-    <h4><%= service.description %></h4>
-    <h4><%= service.beneficiary_id%></h4>
-    <%= link_to "Show this service", service %>
-  <% end %>
+<div class="row">
+  <h4 class="my-3 text-muted">Servicios solicitados</h2>
+  <div class="row row-cols-3 p-2">
+    <% @user.requested_services.each_with_index do |service| %>
+      <div class="slider-card rounded">
+        <%= render service %>
+        <% active = "" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "Back", :back %>
+<div class="row">
+  <h4 class="my-3 text-muted">Servicios ofrecidos</h2>
+  <div class="row row-cols-3 p-2">
+    <% @user.offered_services.each_with_index do |service| %>
+      <%= render service %>
+    <% end %>
+  </div>
+</div>
