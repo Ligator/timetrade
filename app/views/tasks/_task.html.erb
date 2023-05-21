@@ -1,37 +1,33 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Beneficiary:</strong>
-    <%= task.beneficiary_id %>
-  </p>
-
-  <p>
-    <strong>Supplier:</strong>
-    <%= task.supplier_id %>
-  </p>
-
-  <p>
-    <strong>Time:</strong>
-    <%= task.time %>
-  </p>
-
-  <p>
-    <strong>State:</strong>
-    <%= task.state %>
-  </p>
-
-  <p>
-    <strong>Scheduled at:</strong>
-    <%= task.scheduled_at %>
-  </p>
-
-  <p>
-    <strong>Service:</strong>
-    <%= task.service_id %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 mt-5">
+      <div class="card h-100 mb-5">
+        <div class="card-body">
+          <strong>Beneficiary:</strong>
+          <%= task.beneficiary_id %> |     |
+        
+          <strong>Supplier:</strong>
+          <%= task.supplier_id %> |     |
+        
+          <strong>Time:</strong>
+          <%= task.time %> |     |
+        
+          <strong>State:</strong>
+          <%= task.state %> |     |
+        
+          <strong>Scheduled at:</strong>
+          <%= task.scheduled_at %> |     |
+        
+          <strong>Service:</strong>
+          <%= task.service_id %> |     |
+        
+          <strong>Description:</strong>
+          <%= task.description %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 p-0 mt-5">
+      <%= link_to "Edit task","", class: "btn btn-success" %>
+    </div>
+  </div>
 </div>
