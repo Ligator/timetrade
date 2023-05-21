@@ -22,4 +22,8 @@ class Service < ApplicationRecord
       User.find(supplier_id)
     end
   end
+
+  def agenda
+    Task.where(service_id: id)
+  end
 end
