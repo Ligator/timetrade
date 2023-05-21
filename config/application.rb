@@ -25,7 +25,11 @@ module Timetrade
         resource '/services.json',
           headers: :any,
           credentials: true,
-          methods: [:post]
+          methods: [:get, :post, :put, :patch, :delete, :head, :options]
+        resource '/task.json',
+          headers: :any,
+          credentials: true,
+          methods: [:get, :post, :put, :patch, :delete, :head, :options]
       end
 
       allow do
