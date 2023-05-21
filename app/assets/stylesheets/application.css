@@ -41,3 +41,19 @@ a.link-card:hover {
   border-radius: .25rem;
 }
 
+.font-title {
+  margin: 0px 0px 0.35em!important;
+  font-family: __Roboto_5506ec, __Roboto_Fallback_5506ec, Helvetica, Arial, sans-serif!important;
+  font-weight: 400!important;
+  font-size: 1.5rem!important;
+  line-height: 1.334!important;
+}
+
+.font-description {
+  margin: 0px!important;
+  font-family: __Roboto_5506ec, __Roboto_Fallback_5506ec, Helvetica, Arial, sans-serif!important;
+  font-weight: 400!important;
+  font-size: 0.6rem!important;
+  line-height: 1.43!important;
+}
+
