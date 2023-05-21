@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+.slider-container {
+  overflow-x: scroll!important;
+  padding: 15px;
+  background-color: #005192!important;
+}
+
+.slider {
+  display: flex!important;
+  flex-wrap: nowrap!important;
+  padding: 10px!important;
+}
+
+.slider-card {
+  flex: 0 0 300px!important;
+  margin-right: 10px!important;
+  height: 320px;
+}
+
+.slider-card .card {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+a.link-card:hover {
+  background-color: #fff!important;
+  border-radius: .25rem;
+}
+
