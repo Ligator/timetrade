@@ -26,11 +26,11 @@ class ServicesController < ApplicationController
 
   # POST /services or /services.json
   def create
-    @service = Service.new(service_params)  
+    @service = Service.new(service_params)
     if params[:service][:service_type] == "offered"
-      @service.beneficiary_id = current_user.id
-    else
       @service.supplier_id = current_user.id
+    else
+      @service.beneficiary_id = current_user.id
     end
 
     respond_to do |format|
