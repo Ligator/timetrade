@@ -4,3 +4,4 @@ json.extract! service, :created_at, :updated_at
 json.url service_url(service, format: :json)
 json.url_update service_url(service, format: :json, method: :put)
 json.user service.owner, :id, :firstname, :lastname
+json.task service.agenda
