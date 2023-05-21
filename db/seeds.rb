@@ -237,177 +237,264 @@ end
 
 # Ofertas
 
-services = [
+offered_services = [
   {
+    title: "Servicio de Masajes Terapéuticos",
     description: "Soy un masajista certificado que ofrece servicios de masajes terapéuticos y de relajación. Mi objetivo es aliviar el estrés y mejorar tu bienestar general. Contáctame para disfrutar de una experiencia de masaje única y renovadora.",
     supplier_id: 1,
     active: true
   },
   {
+    title: "Servicio de Peluquería Profesional",
+    description: "Soy un peluquero experimentado especializado en cortes de pelo modernos y tendencias de coloración. Estoy comprometido en brindarte un servicio de alta calidad y satisfacer tus necesidades estéticas. Contáctame para lucir un nuevo look asombroso.",
+    supplier_id: 1,
+    active: true
+  },
+  {
+    title: "Servicio de Limpieza Doméstica",
+    description: "Como profesional de la limpieza, ofrezco servicios de limpieza profunda y mantenimiento para tu hogar. Utilizo productos y técnicas efectivas para garantizar un ambiente limpio y saludable. Contáctame para tener un hogar impecable.",
+    supplier_id: 1,
+    active: true
+  },
+  {
+    title: "Servicio de Carpintería Personalizada",
     description: "Como carpintero experimentado, ofrezco servicios de carpintería personalizados para crear muebles y estructuras a medida. Con atención meticulosa a los detalles y habilidades especializadas, puedo cumplir tus expectativas de diseño. Contáctame para llevar tus ideas de carpintería a la realidad.",
-    supplier_id: 1,
+    supplier_id: 2,
     active: true
   },
   {
+    title: "Servicio de Reparación de Muebles",
+    description: "Soy un especialista en reparación de muebles con experiencia en restauración y renovación. Puedo reparar cualquier daño en tus muebles y devolverles su belleza original. Contáctame para darle una nueva vida a tus muebles.",
+    supplier_id: 2,
+    active: true
+  },
+  {
+    title: "Servicio de Diseño de Interiores",
+    description: "Como diseñador de interiores, ofrezco servicios de diseño personalizado para crear espacios funcionales y estéticamente agradables. Trabajo contigo para transformar tus ideas en un diseño de interiores único. Contáctame para crear el hogar de tus sueños.",
+    supplier_id: 2,
+    active: true
+  },
+  {
+    title: "Servicio de Plomería Profesional",
     description: "Ofrezco servicios de plomería confiables y eficientes. Ya sea que necesites una reparación o una instalación nueva, puedo resolver tus problemas de fontanería de manera rápida y profesional. Contáctame para obtener soluciones de plomería de calidad.",
-    supplier_id: 1,
-    active: true
-  },
-  {
-    description: "Soy un electricista profesional que ofrece servicios de instalación, reparación y mantenimiento eléctrico. Puedo solucionar cualquier problema eléctrico y garantizar que tus instalaciones funcionen de manera segura y eficiente. Contáctame para obtener servicios eléctricos confiables y de calidad.",
-    supplier_id: 1,
-    active: true
-  },
-  {
-    description: "Ofrezco servicios de peluquería modernos y personalizados para hombres y mujeres. Con cortes y estilos a la vanguardia, estoy comprometido a brindarte una experiencia única y resaltar tu belleza. Contáctame para un cambio de imagen increíble.",
-    supplier_id: 2,
-    active: true
-  },
-  {
-    description: "Soy un maquillador profesional con pasión por realzar la belleza natural. Ofrezco servicios de maquillaje para ocasiones especiales y eventos. Mi objetivo es resaltar tus rasgos y hacerte sentir radiante. Contáctame para un maquillaje impecable y duradero.",
-    supplier_id: 2,
-    active: true
-  },
-  {
-    description: "Como decorador de interiores, puedo transformar tu hogar en un espacio elegante y acogedor. Ofrezco servicios de diseño de interiores personalizados que reflejan tu estilo y personalidad. Contáctame para crear el ambiente perfecto para tu hogar.",
     supplier_id: 3,
     active: true
   },
   {
-    description: "Soy un chef profesional que ofrece servicios de catering para eventos especiales. Con una amplia experiencia en cocina gourmet, puedo crear un menú delicioso y sofisticado para satisfacer tus necesidades y sorprender a tus invitados. Contáctame para una experiencia gastronómica inolvidable.",
+    title: "Servicio de Diseño Gráfico Creativo",
+    description: "Como especialista en diseño gráfico, ofrezco servicios creativos para logotipos, folletos y más. Trabajo en estrecha colaboración contigo para crear diseños impactantes que reflejen la identidad de tu marca. Contáctame para llevar tu imagen de marca al siguiente nivel.",
     supplier_id: 4,
     active: true
   },
   {
-    description: "Soy un diseñador de jardines especializado en crear espacios verdes únicos y hermosos. Ofrezco servicios de diseño, instalación y mantenimiento de jardines que se adaptan a tus preferencias y necesidades. Contáctame para transformar tu espacio exterior en un oasis natural.",
+    title: "Servicio de Diseño de Páginas Web",
+    description: "Soy un desarrollador web especializado en diseño de páginas web modernas y funcionales. Puedo crear un sitio web a medida que se adapte a tus necesidades y objetivos. Contáctame para tener una presencia en línea efectiva y atractiva.",
+    supplier_id: 4,
+    active: true
+  },
+  {
+    title: "Servicio de Fotografía Profesional",
+    description: "Como fotógrafo profesional, ofrezco servicios de fotografía para capturar momentos especiales y crear recuerdos duraderos. Ya sea para eventos, retratos o paisajes, puedo proporcionarte imágenes de alta calidad. Contáctame para inmortalizar tus momentos más preciados.",
+    supplier_id: 4,
+    active: true
+  },
+  {
+    title: "Servicio de Electricidad Profesional",
+    description: "Soy un electricista profesional que ofrece servicios de instalación, reparación y mantenimiento eléctrico. Puedo solucionar cualquier problema eléctrico y garantizar que tus instalaciones funcionen de manera segura y eficiente. Contáctame para obtener servicios eléctricos confiables y de calidad.",
     supplier_id: 5,
     active: true
   },
   {
-    description: "Ofrezco servicios de fotografía profesional para capturar momentos especiales y crear recuerdos duraderos. Ya sea para bodas, eventos familiares o sesiones individuales, mi enfoque es capturar la esencia y emociones en cada imagen. Contáctame para inmortalizar tus momentos más preciosos.",
+    title: "Servicio de Instalación de Paneles Solares",
+    description: "Como especialista en energía solar, ofrezco servicios de instalación de paneles solares para ayudarte a aprovechar la energía renovable. Puedo diseñar e instalar un sistema eficiente que reducirá tu dependencia de la red eléctrica tradicional. Contáctame para obtener una solución sostenible.",
     supplier_id: 5,
     active: true
   },
-]
-
-services.each do |service|
-  Service.create(service)
-end
-
-services = [
   {
-    description: "Soy un instructor de yoga certificado que ofrece clases individuales y grupales. Mi objetivo es ayudarte a encontrar equilibrio y bienestar a través de la práctica del yoga. Contáctame para mejorar tu flexibilidad, fuerza y paz interior.",
+    title: "Servicio de Reparación de Electrodomésticos",
+    description: "Soy un técnico especializado en la reparación de electrodomésticos. Puedo solucionar problemas y realizar reparaciones en tus electrodomésticos para prolongar su vida útil. Contáctame para ahorrar dinero y evitar la necesidad de reemplazar tus electrodomésticos.",
+    supplier_id: 5,
+    active: true
+  },
+  {
+    title: "Servicio de Jardinería y Paisajismo",
+    description: "Ofrezco servicios de jardinería y paisajismo para crear espacios exteriores hermosos y funcionales. Puedo diseñar jardines, instalar sistemas de riego y realizar mantenimiento regular para mantener tus espacios verdes impecables. Contáctame para tener un jardín impresionante.",
     supplier_id: 6,
     active: true
   },
   {
-    description: "Ofrezco servicios de entrenamiento personalizado para ayudarte a alcanzar tus objetivos de fitness. Con programas adaptados a tus necesidades y motivación constante, te guiaré en tu camino hacia una vida más saludable. Contáctame para dar el primer paso hacia una transformación física y mental.",
-    supplier_id: 6,
-    active: true
-  },
-  {
-    description: "Soy un chef especializado en cocina internacional. Ofrezco servicios de catering para eventos privados y corporativos, brindando una experiencia culinaria excepcional. Mi enfoque está en ingredientes frescos y sabores auténticos. Contáctame para deleitar a tus invitados con una gastronomía de clase mundial.",
+    title: "Corte y Peinado de Cabello",
+    description: "Soy un estilista profesional que ofrece servicios de corte y peinado de cabello para hombres y mujeres. Con experiencia en las últimas tendencias de la moda capilar, puedo ayudarte a lucir tu mejor estilo. Contáctame para un cambio de look increíble.",
     supplier_id: 7,
     active: true
   },
   {
-    description: "Soy un instructor de baile con amplia experiencia en diferentes estilos. Ofrezco clases grupales y particulares para todos los niveles, desde principiantes hasta avanzados. Contáctame para aprender nuevos pasos y disfrutar del maravilloso mundo del baile.",
+    title: "Reparación y Restauración de Muebles Antiguos",
+    description: "Soy un experto en reparación y restauración de muebles antiguos. Utilizo técnicas tradicionales y materiales de alta calidad para devolverle a tus muebles antiguos su belleza y funcionalidad original. Contáctame para darle una nueva vida a tus tesoros familiares.",
+    supplier_id: 7,
+    active: true
+  },
+  {
+    title: "Reparación de Tuberías y Desagües",
+    description: "Ofrezco servicios de reparación de tuberías y desagües para resolver problemas de plomería en tu hogar. Con herramientas especializadas y amplia experiencia, puedo solucionar fugas y obstrucciones de manera eficiente. Contáctame para una solución rápida y duradera.",
     supplier_id: 8,
     active: true
   },
   {
-    description: "Como profesor de idiomas, ofrezco clases particulares y personalizadas para ayudarte a aprender inglés de manera efectiva. Con un enfoque comunicativo y actividades interactivas, te guiaré en el proceso de dominar el idioma. Contáctame para mejorar tus habilidades lingüísticas.",
+    title: "Diseño de Logotipos",
+    description: "Soy un diseñador gráfico especializado en la creación de logotipos únicos y memorables para marcas y empresas. Trabajo en estrecha colaboración contigo para capturar la esencia de tu negocio y crear una identidad visual distintiva. Contáctame para destacar en el mercado.",
+    supplier_id: 8,
+    active: true
+  },
+  {
+    title: "Servicio de Cerrajería",
+    description: "Ofrezco servicios de cerrajería profesionales para instalación y reparación de cerraduras y sistemas de seguridad. Puedo ayudarte a proteger tu hogar o negocio con soluciones confiables y eficientes. Contáctame para garantizar la seguridad de tus propiedades.",
     supplier_id: 9,
     active: true
   },
   {
-    description: "Soy un entrenador personal certificado que ofrece servicios de acondicionamiento físico y entrenamiento personalizado. Diseñaré un programa adaptado a tus objetivos y te motivaré para alcanzar tus metas de salud y bienestar. Contáctame para iniciar tu transformación.",
+    title: "Asesoría Financiera Personalizada",
+    description: "Soy un asesor financiero con experiencia en brindar asesoramiento personalizado para ayudarte a alcanzar tus metas financieras. Puedo ayudarte a administrar tus finanzas, invertir de manera inteligente y planificar para el futuro. Contáctame para tomar el control de tus finanzas.",
+    supplier_id: 9,
+    active: true
+  },
+  {
+    title: "Servicio de Catering para Eventos",
+    description: "Ofrezco servicios de catering personalizados para eventos especiales. Desde bodas hasta reuniones corporativas, puedo crear un menú delicioso y adaptado a tus necesidades. Contáctame para hacer de tu evento una experiencia culinaria inolvidable.",
     supplier_id: 10,
     active: true
   },
   {
-    description: "Ofrezco servicios de diseño de moda y confección de prendas a medida. Con experiencia en la creación de diseños únicos y la elección de telas de alta calidad, te ayudaré a lucir elegante y sofisticado. Contáctame para tener prendas personalizadas que reflejen tu estilo.",
-    supplier_id: 10,
-    active: true
-  },
-]
-
-services.each do |service|
-  Service.create(service)
-end
-
-services = [
-  {
-    description: "Soy un fotógrafo especializado en capturar momentos auténticos y emociones genuinas. Ofrezco servicios de fotografía de retratos, bodas y eventos. Mi objetivo es crear imágenes que cuenten historias y perduren en el tiempo. Contáctame para inmortalizar tus momentos más preciados.",
+    title: "Diseño de Interiores Residenciales",
+    description: "Soy un diseñador de interiores especializado en la creación de espacios residenciales funcionales y estéticamente agradables. Trabajo contigo para transformar tus ideas en un diseño de interiores que refleje tu estilo y personalidad. Contáctame para crear el hogar de tus sueños.",
     supplier_id: 11,
     active: true
   },
   {
-    description: "Como chef pastelero, ofrezco servicios de repostería creativa para eventos y ocasiones especiales. Desde deliciosos pasteles decorados hasta exquisitos postres, cada creación es elaborada con pasión y cuidado. Contáctame para endulzar tus celebraciones con mis dulces tentaciones.",
+    title: "Reparación de Electrodomésticos",
+    description: "Ofrezco servicios de reparación de electrodomésticos para resolver problemas y averías en tus electrodomésticos. Con experiencia en una amplia gama de marcas y modelos, puedo asegurarte un servicio confiable y eficiente. Contáctame para que tus electrodomésticos vuelvan a funcionar correctamente.",
+    supplier_id: 11,
+    active: true
+  },
+  {
+    title: "Servicio de Jardinería y Mantenimiento",
+    description: "Ofrezco servicios de jardinería y mantenimiento para mantener tu jardín en excelente estado. Realizo tareas como corte de césped, poda de arbustos, y mantenimiento general para mantener tus espacios exteriores hermosos y ordenados. Contáctame para tener un jardín impecable durante todo el año.",
+    supplier_id: 11,
+    active: true
+  },
+  {
+    title: "Reparación de Fontanería",
+    description: "Soy un fontanero profesional y ofrezco servicios de reparación de fontanería para resolver problemas como fugas, grifos averiados y tuberías obstruidas. Puedes confiar en mi experiencia y habilidades para solucionar cualquier inconveniente de fontanería. Contáctame para soluciones rápidas y duraderas.",
     supplier_id: 12,
     active: true
   },
   {
-    description: "Soy un instructor de artes marciales con experiencia en diferentes disciplinas. Ofrezco clases para todas las edades y niveles, desde principiantes hasta avanzados. Mi objetivo es enseñar habilidades de autodefensa y promover el crecimiento personal. Contáctame para embarcarte en un viaje de autodescubrimiento y confianza.",
+    title: "Instalación de Sistemas de Seguridad",
+    description: "Ofrezco servicios de instalación de sistemas de seguridad para proteger tu hogar o negocio. Desde cámaras de vigilancia hasta alarmas, puedo diseñar e instalar un sistema personalizado que se adapte a tus necesidades de seguridad. Contáctame para tener tranquilidad y protección las 24 horas.",
+    supplier_id: 12,
+    active: true
+  },
+  {
+    title: "Servicio de Limpieza Comercial",
+    description: "Ofrezco servicios de limpieza comercial para mantener tus instalaciones limpias y profesionales. Con personal capacitado y productos de limpieza de calidad, puedo brindarte un ambiente limpio y saludable para tus clientes y empleados. Contáctame para tener un espacio comercial impecable.",
+    supplier_id: 12,
+    active: true
+  },
+  {
+    title: "Servicio de Entrenamiento Personalizado",
+    description: "Soy un entrenador personal certificado y ofrezco servicios de entrenamiento personalizado para ayudarte a alcanzar tus metas de salud y estado físico. Diseñaré un programa de ejercicios y te brindaré el apoyo y la motivación necesarios para obtener resultados. Contáctame para transformar tu cuerpo y tu vida.",
     supplier_id: 13,
     active: true
   },
   {
-    description: "Ofrezco servicios de consultoría empresarial para ayudar a optimizar la eficiencia y el crecimiento de tu empresa. Con amplios conocimientos en estrategia y gestión, te brindaré soluciones personalizadas para alcanzar tus metas empresariales. Contáctame para potenciar el éxito de tu negocio.",
+    title: "Clases de Yoga y Meditación",
+    description: "Ofrezco clases de yoga y meditación para ayudarte a encontrar equilibrio, flexibilidad y paz interior. Ya seas principiante o avanzado, te guiaré en prácticas que promuevan tu bienestar físico y mental. Contáctame para empezar tu viaje hacia una vida más saludable y consciente.",
     supplier_id: 14,
     active: true
   },
   {
-    description: "Soy un instructor de fitness con experiencia en entrenamiento funcional y clases grupales. Ofrezco sesiones dinámicas y motivadoras para mejorar tu fuerza, resistencia y flexibilidad. Contáctame para alcanzar un nivel de condición física óptimo y llevar un estilo de vida saludable.",
+    title: "Servicio de Diseño de Sitios Web",
+    description: "Soy un diseñador web profesional y ofrezco servicios de diseño de sitios web a medida. Utilizo las últimas tendencias y tecnologías para crear sitios web modernos, atractivos y funcionales. Contáctame para tener una presencia en línea impactante y efectiva.",
+    supplier_id: 14,
+    active: true
+  },
+  {
+    title: "Servicio de Fotografía de Bodas",
+    description: "Soy un fotógrafo especializado en capturar los momentos más preciosos de tu boda. Con un enfoque artístico y una atención meticulosa a los detalles, crearé un álbum de bodas lleno de recuerdos emotivos y hermosos. Contáctame para preservar tus momentos especiales para siempre.",
+    supplier_id: 14,
+    active: true
+  },
+  {
+    title: "Servicio de Contabilidad y Asesoría Financiera",
+    description: "Ofrezco servicios de contabilidad y asesoría financiera para ayudarte a mantener tus finanzas en orden y lograr tus objetivos financieros. Desde la gestión de impuestos hasta la planificación financiera, puedo brindarte un apoyo experto. Contáctame para tener tranquilidad en tus asuntos financieros.",
     supplier_id: 15,
     active: true
-  }
-]
-
-services.each do |service|
-  Service.create(service)
-end
-
-services = [
+  },
   {
-    description: "Soy un entrenador personal especializado en fitness y pérdida de peso. Ofrezco programas de entrenamiento personalizados y planes de alimentación saludable para ayudarte a alcanzar tus objetivos de forma efectiva. Contáctame para transformar tu cuerpo y mejorar tu calidad de vida.",
+    title: "Servicio de Consultoría de Recursos Humanos",
+    description: "Soy un consultor de recursos humanos con experiencia en brindar asesoramiento estratégico y soluciones personalizadas. Puedo ayudarte en la gestión del talento, desarrollo organizacional y resolución de conflictos laborales. Contáctame para fortalecer tu equipo y optimizar tu empresa.",
+    supplier_id: 15,
+    active: true
+  },
+  {
+    title: "Servicio de Diseño de Moda",
+    description: "Soy un diseñador de moda y ofrezco servicios de diseño personalizados para prendas de vestir y accesorios. Desde el diseño conceptual hasta la creación de prototipos, puedo ayudarte a dar vida a tus ideas y crear colecciones únicas. Contáctame para destacar en la industria de la moda.",
     supplier_id: 16,
     active: true
   },
   {
-    description: "Ofrezco servicios de diseño gráfico y branding para ayudar a las empresas a destacarse en el mercado. Desde la creación de logotipos hasta la elaboración de material promocional, trabajaré contigo para transmitir tu identidad visual de manera efectiva. Contáctame para impulsar tu imagen de marca.",
+    title: "Servicio de Traducción e Interpretación",
+    description: "Ofrezco servicios profesionales de traducción e interpretación en diversos idiomas. Con conocimientos lingüísticos y culturales sólidos, puedo garantizar una comunicación fluida y precisa en situaciones comerciales, legales o de otro tipo. Contáctame para superar las barreras lingüísticas.",
     supplier_id: 16,
     active: true
   },
   {
-    description: "Soy un instructor de baile profesional con experiencia en diferentes estilos, como salsa, bachata y tango. Ofrezco clases grupales y privadas para principiantes y avanzados. Mi objetivo es transmitir mi pasión por el baile y ayudarte a mejorar tus habilidades. Contáctame para comenzar a bailar con estilo.",
+    title: "Servicio de Diseño de Interiores",
+    description: "Ofrezco servicios de diseño de interiores para crear espacios funcionales y estéticamente atractivos. Ya sea para tu hogar o tu negocio, puedo transformar tus ambientes en lugares acogedores y con estilo. Contáctame para dar vida a tus ideas y crear un espacio que refleje tu personalidad.",
     supplier_id: 17,
     active: true
   },
   {
-    description: "Como diseñador de interiores, ofrezco servicios de diseño y decoración para crear espacios funcionales y estéticamente agradables. Trabajaré contigo para reflejar tu estilo y personalidad en cada detalle. Contáctame para transformar tus espacios en lugares acogedores y con estilo.",
+    title: "Servicio de Catering",
+    description: "Ofrezco servicios de catering para eventos de todo tipo. Desde bodas y fiestas de cumpleaños hasta eventos corporativos, puedo crear menús deliciosos y personalizados que deleitarán a tus invitados. Contáctame para disfrutar de una experiencia culinaria excepcional en tu próximo evento.",
+    supplier_id: 17,
+    active: true
+  },
+  {
+    title: "Clases de Baile",
+    description: "Imparto clases de baile para todas las edades y niveles de experiencia. Desde salsa y bachata hasta ballet y jazz, puedo ayudarte a desarrollar tus habilidades y disfrutar del arte del baile. Contáctame para mover el cuerpo, divertirte y expresarte a través de la danza.",
     supplier_id: 18,
     active: true
   },
   {
-    description: "Soy un traductor profesional con experiencia en múltiples idiomas. Ofrezco servicios de traducción escrita y oral para satisfacer tus necesidades de comunicación. Contáctame para garantizar una traducción precisa y de calidad en diferentes contextos y temas.",
+    title: "Servicio de Reparación de Automóviles",
+    description: "Ofrezco servicios de reparación de automóviles para solucionar problemas mecánicos y mantener tu vehículo en óptimas condiciones. Con experiencia en una amplia gama de marcas y modelos, puedes confiar en mí para brindarte un servicio confiable y de calidad. Contáctame para mantener tu automóvil en la mejor forma.",
+    supplier_id: 18,
+    active: true
+  },
+  {
+    title: "Servicio de Diseño Gráfico",
+    description: "Soy un diseñador gráfico y ofrezco servicios creativos para ayudarte a construir una identidad visual sólida. Desde logotipos y folletos hasta diseño de sitios web y redes sociales, puedo dar vida a tus ideas y ayudarte a destacar en el mercado. Contáctame para impulsar tu marca con un diseño impactante.",
     supplier_id: 19,
     active: true
   },
   {
-    description: "Ofrezco servicios de diseño y desarrollo web personalizados para empresas y emprendedores. Crearé un sitio web atractivo y funcional que refleje la identidad de tu marca. Contáctame para llevar tu presencia en línea al siguiente nivel.",
+    title: "Servicio de Entrenamiento Personal",
+    description: "Soy un entrenador personal certificado y ofrezco servicios de entrenamiento personalizado para ayudarte a alcanzar tus objetivos de salud y estado físico. Diseñaré un programa de ejercicios y te brindaré el apoyo y la motivación necesarios para obtener resultados. Contáctame para transformar tu cuerpo y mejorar tu bienestar.",
+    supplier_id: 19,
+    active: true
+  },
+  {
+    title: "Servicio de Diseño de Joyas",
+    description: "Soy un diseñador de joyas y ofrezco servicios de diseño personalizado para crear piezas únicas y hermosas. Utilizo materiales de alta calidad y técnicas artesanales para hacer realidad tus ideas. Contáctame para obtener una joya personalizada que refleje tu estilo y personalidad.",
     supplier_id: 20,
     active: true
-  }
+  },
 ]
-
-services.each do |service|
-  Service.create(service)
-end
 
 # Peticiones
 
-services = [
+requested_services = [
   {
     title: "Reparación de fuga en la tubería del baño",
     description: "Hola vecinos, necesito ayuda para solucionar una fuga en la tubería del baño. ¿Alguien con conocimientos en plomería puede ayudarme a repararlo? Agradecería mucho su colaboración. ¡Gracias!",
@@ -698,9 +785,8 @@ services = [
   },
 ]
 
-services.each do |service|
-  Service.create(service)
-end
+Service.insert_all(offered_services)
+Service.insert_all(requested_services)
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('services')
