@@ -18,7 +18,8 @@ users = [
     password: "password123",
     phone: "1234567890",
     birthday: Date.new(1990, 5, 19),
-    gender: "female"
+    gender: "female",
+    created_at: "Sun, 09 Apr 2023",
   },
   # User 2
   {
@@ -29,7 +30,8 @@ users = [
     password: "password123",
     phone: "0987654321",
     birthday: Date.new(1992, 8, 12),
-    gender: "male"
+    gender: "male",
+    created_at: "Wed, 31 Mar 2021",
   },
   # User 3
   {
@@ -40,7 +42,8 @@ users = [
     password: "password123",
     phone: "5555555555",
     birthday: Date.new(1985, 10, 2),
-    gender: "female"
+    gender: "female",
+    created_at: "Fri, 13 Nov 2020",
   },
   # User 4
   {
@@ -51,7 +54,8 @@ users = [
     password: "password123",
     phone: "9876543210",
     birthday: Date.new(1988, 12, 25),
-    gender: "male"
+    gender: "male",
+    created_at: "Sun, 25 Sep 2022",
   },
   # User 5
   {
@@ -62,7 +66,8 @@ users = [
     password: "password123",
     phone: "1112223333",
     birthday: Date.new(1977, 3, 15),
-    gender: "female"
+    gender: "female",
+    created_at: "Sun, 15 Aug 2021",
   },
   # User 6
   {
@@ -73,7 +78,8 @@ users = [
     password: "password123",
     phone: "9998887777",
     birthday: Date.new(1995, 7, 8),
-    gender: "male"
+    gender: "male",
+    created_at: "Thu, 13 Jan 2022",
   },
   # User 7
   {
@@ -84,7 +90,8 @@ users = [
     password: "password123",
     phone: "4444444444",
     birthday: Date.new(1983, 2, 10),
-    gender: "female"
+    gender: "female",
+    created_at: "Thu, 23 Jul 2020",
   },
   # User 8
   {
@@ -95,7 +102,8 @@ users = [
     password: "password123",
     phone: "7777777777",
     birthday: Date.new(1994, 9, 21),
-    gender: "male"
+    gender: "male",
+    created_at: "Sun, 20 Jun 2021",
   },
   # User 9
   {
@@ -106,7 +114,8 @@ users = [
     password: "password123",
     phone: "6666666666",
     birthday: Date.new(1980, 6, 3),
-    gender: "female"
+    gender: "female",
+    created_at: "Wed, 27 Oct 2021",
   },
   # User 10
   {
@@ -117,7 +126,8 @@ users = [
     password: "password123",
     phone: "5554443333",
     birthday: Date.new(1998, 4, 17),
-    gender: "male"
+    gender: "male",
+    created_at: "Sat, 09 Apr 2022",
   },
   # User 11
   {
@@ -128,7 +138,8 @@ users = [
     password: "password123",
     phone: "1234567890",
     birthday: Date.new(1991, 9, 3),
-    gender: "female"
+    gender: "female",
+    created_at: "Thu, 24 Jun 2021",
   },
   # User 12
   {
@@ -139,7 +150,8 @@ users = [
     password: "password123",
     phone: "0987654321",
     birthday: Date.new(1987, 12, 15),
-    gender: "male"
+    gender: "male",
+    created_at: "Wed, 14 Apr 2021",
   },
   # User 13
   {
@@ -150,7 +162,8 @@ users = [
     password: "password123",
     phone: "5555555555",
     birthday: Date.new(1995, 3, 28),
-    gender: "female"
+    gender: "female",
+    created_at: "Mon, 09 Aug 2021",
   },
   # User 14
   {
@@ -161,7 +174,8 @@ users = [
     password: "password123",
     phone: "9876543210",
     birthday: Date.new(1983, 6, 7),
-    gender: "male"
+    gender: "male",
+    created_at: "Thu, 19 Aug 2021",
   },
   # User 15
   {
@@ -172,7 +186,8 @@ users = [
     password: "password123",
     phone: "1112223333",
     birthday: Date.new(1990, 8, 22),
-    gender: "female"
+    gender: "female",
+    created_at: "Mon, 20 Feb 2023",
   },
   # User 16
   {
@@ -183,7 +198,8 @@ users = [
     password: "password123",
     phone: "9998887777",
     birthday: Date.new(1986, 2, 10),
-    gender: "male"
+    gender: "male",
+    created_at: "Sun, 15 Aug 2021",
   },
   # User 17
   {
@@ -194,7 +210,8 @@ users = [
     password: "password123",
     phone: "4444444444",
     birthday: Date.new(1993, 5, 19),
-    gender: "female"
+    gender: "female",
+    created_at: "Sat, 08 Jan 2022",
   },
   # User 18
   {
@@ -205,7 +222,8 @@ users = [
     password: "password123",
     phone: "7777777777",
     birthday: Date.new(1981, 11, 7),
-    gender: "male"
+    gender: "male",
+    created_at: "Mon, 26 Sep 2022",
   },
   # User 19
   {
@@ -216,7 +234,8 @@ users = [
     password: "password123",
     phone: "6666666666",
     birthday: Date.new(1989, 4, 12),
-    gender: "female"
+    gender: "female",
+    created_at: "Tue, 22 Dec 2020",
   },
   # User 20
   {
@@ -227,7 +246,8 @@ users = [
     password: "password123",
     phone: "5554443333",
     birthday: Date.new(1997, 7, 25),
-    gender: "male"
+    gender: "male",
+    created_at: "Thu, 25 Aug 2022",
   }
 ]
 
