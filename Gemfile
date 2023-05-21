@@ -47,11 +47,14 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'devise-jwt'
 gem 'jsonapi-serializer'
+gem 'rails-i18n', '~> 7.0.0'
 
 gem "awesome_print"
 gem "newrelic_rpm"
 
 gem "rack-cors"
+
+gem 'gravtastic'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
