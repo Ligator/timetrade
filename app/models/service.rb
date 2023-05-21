@@ -17,7 +17,7 @@ class Service < ApplicationRecord
 
   def owner
     if beneficiary_id.present?
-     User.find(beneficiary_id)
+      User.find(beneficiary_id)
     else
       User.find(supplier_id)
     end
