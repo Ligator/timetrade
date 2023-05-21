@@ -9,7 +9,6 @@ class ServicesController < ApplicationController
 
   # GET /services/1 or /services/1.json
   def show
-   @service.kind
   end
 
   # GET /services/new
