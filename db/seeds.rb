@@ -2219,20 +2219,20 @@ Comment.insert_all(comments_attrs.flatten)
 ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
 
-number_of_requested_service = (2..10).to_a
-hours = (1..5).to_a
-states = ["pending", "accepted", "completed"]
-tasks_total = 0
-User.all.each do |user|
-  puts "User #{user.id}. #{user.full_name}"
-  offered_services = Service.where.not(supplier_id: [user.id, nil]).where(beneficiary_id: nil).order("RANDOM()").limit(number_of_requested_service.sample)
-  puts "Tasks: #{offered_services.count}"
-  offered_services.each do |service|
-    Task.create(beneficiary_id: user.id, supplier_id: service.supplier_id, time: hours.sample, state: states.sample, service: service, description: service.title)
-    tasks_total += 1
-  end
-end
-puts "Total = #{tasks_total}"
+# number_of_requested_service = (2..10).to_a
+# hours = (1..5).to_a
+# states = ["pending", "accepted", "completed"]
+# tasks_total = 0
+# User.all.each do |user|
+#   puts "User #{user.id}. #{user.full_name}"
+#   offered_services = Service.where.not(supplier_id: [user.id, nil]).where(beneficiary_id: nil).order("RANDOM()").limit(number_of_requested_service.sample)
+#   puts "Tasks: #{offered_services.count}"
+#   offered_services.each do |service|
+#     Task.create(beneficiary_id: user.id, supplier_id: service.supplier_id, time: hours.sample, state: states.sample, service: service, description: service.title)
+#     tasks_total += 1
+#   end
+# end
+# puts "Total = #{tasks_total}"
 
 
 
