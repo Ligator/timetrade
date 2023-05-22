@@ -8,9 +8,10 @@
 
     <div class="col-md-8">
       <div class="profile-head">
-        <h3><%= @user.full_name %></h3>
-        <h6><%= distance_of_time_in_words(@user.hours_balance.hours.ago, Time.current).capitalize %></h6>
-
+        <div class="mb-3">
+          <h3><%= @user.full_name %></h3>
+          <h6>Balance: <%= @user.hours_balance %> Horas</h6>
+        </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Estadísticas</a>
@@ -138,7 +139,7 @@
   <div class="row row-cols-3 p-2">
     <% @user.all_tasks.group_by(&:state).values.flatten.each do |task| %>
       <div class="col-3 px-1">
-        <div class="py-1" style="height: 220px;">
+        <div class="py-1" style="height: 270px;">
           <%= render task %>
         </div>
       </div>

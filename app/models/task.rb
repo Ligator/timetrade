@@ -20,4 +20,12 @@ class Task < ApplicationRecord
       "Completada"
     end
   end
+
+  def contact(user)
+    if supplier_id == user.id
+      beneficiary
+    else
+      supplier
+    end
+  end
 end
