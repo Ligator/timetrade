@@ -13,30 +13,68 @@
       </div>
     </div>
   </div>
-  <div class="col-4">
-    <%= form_with(model: [@service, Task.new]) do |form| %>
-      <div  class="row text-right">
-        <div class="col-12">
-          <%= form.text_field :time, class: "form-control", placeholder: "Tiempo estimado" %>
+  <% if @service.user_id != current_user.id %>
+    <div class="col-4">
+      <%= form_with(model: [@service, Task.new]) do |form| %>
+        <div  class="row text-right">
+          <div class="col-12">
+            <%= form.text_field :time, class: "form-control", placeholder: "Tiempo estimado" %>
+          </div>
+          <div class="col-12">
+            <%= form.submit "Solicitar servicio", class: "btn btn-primary mt-2" %>
+          </div>
         </div>
-        <div class="col-12">
-          <%= form.submit "Solicitar servicio", class: "btn btn-primary mt-2" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
-<div class="row">
-    <%# @tasks.each do |task| %>
-      <%#= render task %>
-    <%# end %>
-</div>
+<h4 class="text-muted">Tareas Assignadas</h4>
+<% @tasks.each do |task| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <%= task.supplier.firstname + task.supplier.lastname %>
+        </div>
+        <div class="col">
+          <%= task.supplier.email %>
+        </div>
+        <div class="col">
+          Horas:
+          <%= task.time %>
+        </div>
+        <div class="col">
+          Estado:
+          <%= task.state %>
+        </div>
+
+        <% if !task.ranking && task.beneficiary_id == current_user.id %>
+          <div class="col col-4">
+            <%= form_for(Ranking.new, url: rankings_path, html: { method: :post }) do |f| %>
+              <div class="row row-cols-3">
+                <div class="col">
+                  <%= f.label "Calificación:" %>
+                </div>
+                <%= f.text_field :score, class: "form-control col col-2", type: :number, max: 5 %>
+                <%= f.submit "Clomplete", class: "btn btn-primary col" %>
+              </div>
+            <% end %>
+          </div>
+        <% elsif task.ranking %>
+          <div class="col">
+            <h5><%= task.ranking.score %></h5>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="col-md-12">
     <div class="mb-3">
-      <h5>Comentarios</h5>
+      <h5 class="text-muted">Comentarios</h5>
     </div>
 
     <div class="card p-3 mt-2">

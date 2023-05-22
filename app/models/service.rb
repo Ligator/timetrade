@@ -35,4 +35,8 @@ class Service < ApplicationRecord
   def agenda
     Task.where(service_id: id)
   end
+
+  def user_id
+    beneficiary_id || supplier_id
+  end
 end

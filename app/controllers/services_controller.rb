@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1 or /services/1.json
   def show
-    @task = Task.where(service_id: @service.id)
+    @tasks = Task.where(service_id: @service.id)
   end
 
   # GET /services/new

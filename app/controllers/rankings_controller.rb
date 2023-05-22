@@ -25,6 +25,7 @@ class RankingsController < ApplicationController
 
     return if requested_task.nil?
 
+    @service = requested_task.service
     beneficiary_id = requested_task.beneficiary_id.presence || current_user.id
     supplier_id = requested_task.supplier_id.presence || current_user.id
     params_to_save = ranking_params.merge!(supplier_id: supplier_id, beneficiary_id: beneficiary_id)
@@ -33,7 +34,7 @@ class RankingsController < ApplicationController
     respond_to do |format|
       if @ranking.save
         requested_task.update(state: "complete")
-        format.html { redirect_to task_path(requested_task), notice: "Ranking was successfully created." }
+        format.html { redirect_to service_url(@service), notice: "Ranking was successfully created." }
         format.json { render :show, status: :created, location: @ranking }
       else
         format.html { render :new, status: :unprocessable_entity }
