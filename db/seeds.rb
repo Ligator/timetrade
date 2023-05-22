@@ -251,51 +251,6 @@ users = [
   }
 ]
 
-
-# service = {:id=>1, :title=>"Servicio de Masajes Terapéuticos", :supplier_id=>1}
-# service = {:id=>2, :title=>"Servicio de Peluquería Profesional", :supplier_id=>1}
-# service = {:id=>3, :title=>"Servicio de Limpieza Doméstica", :supplier_id=>1}
-# service = {:id=>4, :title=>"Servicio de Carpintería Personalizada", :supplier_id=>2}
-# service = {:id=>5, :title=>"Servicio de Reparación de Muebles", :supplier_id=>2}
-# service = {:id=>6, :title=>"Servicio de Diseño de Interiores", :supplier_id=>2}
-# service = {:id=>7, :title=>"Servicio de Plomería Profesional", :supplier_id=>3}
-# service = {:id=>8, :title=>"Servicio de Diseño Gráfico Creativo", :supplier_id=>4}
-# service = {:id=>9, :title=>"Servicio de Diseño de Páginas Web", :supplier_id=>4}
-# service = {:id=>10, :title=>"Servicio de Fotografía Profesional", :supplier_id=>4}
-# service = {:id=>11, :title=>"Servicio de Electricidad Profesional", :supplier_id=>5}
-# service = {:id=>12, :title=>"Servicio de Instalación de Paneles Solares", :supplier_id=>5}
-# service = {:id=>13, :title=>"Servicio de Reparación de Electrodomésticos", :supplier_id=>5}
-# service = {:id=>14, :title=>"Servicio de Jardinería y Paisajismo", :supplier_id=>6}
-# service = {:id=>15, :title=>"Corte y Peinado de Cabello", :supplier_id=>7}
-# service = {:id=>16, :title=>"Reparación y Restauración de Muebles Antiguos", :supplier_id=>7}
-# service = {:id=>17, :title=>"Reparación de Tuberías y Desagües", :supplier_id=>8}
-# service = {:id=>18, :title=>"Diseño de Logotipos", :supplier_id=>8}
-# service = {:id=>19, :title=>"Servicio de Cerrajería", :supplier_id=>9}
-# service = {:id=>20, :title=>"Asesoría Financiera Personalizada", :supplier_id=>9}
-# service = {:id=>21, :title=>"Servicio de Catering para Eventos", :supplier_id=>10}
-# service = {:id=>22, :title=>"Diseño de Interiores Residenciales", :supplier_id=>11}
-# service = {:id=>23, :title=>"Reparación de Electrodomésticos", :supplier_id=>11}
-# service = {:id=>24, :title=>"Servicio de Jardinería y Mantenimiento", :supplier_id=>11}
-# service = {:id=>25, :title=>"Reparación de Fontanería", :supplier_id=>12}
-# service = {:id=>26, :title=>"Instalación de Sistemas de Seguridad", :supplier_id=>12}
-# service = {:id=>27, :title=>"Servicio de Limpieza Comercial", :supplier_id=>12}
-# service = {:id=>28, :title=>"Servicio de Entrenamiento Personalizado", :supplier_id=>13}
-# service = {:id=>29, :title=>"Clases de Yoga y Meditación", :supplier_id=>14}
-# service = {:id=>30, :title=>"Servicio de Diseño de Sitios Web", :supplier_id=>14}
-# # service = {:id=>31, :title=>"Servicio de Fotografía de Bodas", :supplier_id=>14}
-# service = {:id=>32, :title=>"Servicio de Contabilidad y Asesoría Financiera", :supplier_id=>15}
-# service = {:id=>33, :title=>"Servicio de Consultoría de Recursos Humanos", :supplier_id=>15}
-# service = {:id=>34, :title=>"Servicio de Diseño de Moda", :supplier_id=>16}
-# service = {:id=>35, :title=>"Servicio de Traducción e Interpretación", :supplier_id=>16}
-# service = {:id=>36, :title=>"Servicio de Diseño de Interiores", :supplier_id=>17}
-# service = {:id=>37, :title=>"Servicio de Catering", :supplier_id=>17}
-# service = {:id=>38, :title=>"Clases de Baile", :supplier_id=>18}
-# service = {:id=>39, :title=>"Servicio de Reparación de Automóviles", :supplier_id=>18}
-# service = {:id=>40, :title=>"Servicio de Diseño Gráfico", :supplier_id=>19}
-# service = {:id=>41, :title=>"Servicio de Entrenamiento Personal", :supplier_id=>19}
-# service = {:id=>42, :title=>"Servicio de Diseño de Joyas", :supplier_id=>20}
-
-
 # Ofertas
 
 offered_services = [
@@ -2262,3 +2217,22 @@ ActiveRecord::Base.connection.reset_pk_sequence!('services')
 
 Comment.insert_all(comments_attrs.flatten)
 ActiveRecord::Base.connection.reset_pk_sequence!('comments')
+
+
+number_of_requested_service = (2..10).to_a
+hours = (1..5).to_a
+states = ["pending", "accepted", "completed"]
+tasks_total = 0
+User.all.each do |user|
+  puts "User #{user.id}. #{user.full_name}"
+  offered_services = Service.where.not(supplier_id: [user.id, nil]).where(beneficiary_id: nil).order("RANDOM()").limit(number_of_requested_service.sample)
+  puts "Tasks: #{offered_services.count}"
+  offered_services.each do |service|
+    Task.create(beneficiary_id: user.id, supplier_id: service.supplier_id, time: hours.sample, state: states.sample, service: service, description: service.title)
+    tasks_total += 1
+  end
+end
+puts "Total = #{tasks_total}"
+
+
+

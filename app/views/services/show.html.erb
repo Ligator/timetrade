@@ -1,14 +1,22 @@
 <div class="row my-5">
   <div class="col-12">
     <h2><%= @service.title %></h2>
+    <h6 class="card-subtitle mb-2 text-muted"><%= service_kind(@service) %></h6>
   </div>
-  <div class="col-8">
+  <div class="col">
     <div class="card h-100 mb-5">
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted text-right"><%= service_kind(@service) %></h6>
         <div><%= @service.description %></div>
-        <div class="text-right">
-          <%= link_to "Edit", edit_service_path(@service) %>
+      </div>
+      <div class="card-footer">
+        <div class="col-12">
+          <div class="row justify-content-between">
+            <div>
+              <%= image_tag @service.owner.gravatar_url(d: "identicon", s: "30"), class: "img-fluid rounded-circle" %>
+              <span><small class="font-weight-bold text-primary"><%= @service.owner.full_name %></small></span>
+            </div>
+            <div><%= link_to "Edit", edit_service_path(@service) %></div>
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +37,10 @@
   <% end %>
 </div>
 
-<h4 class="text-muted">Tareas Assignadas</h4>
+<% if @tasks.present? %>
+  <h4 class="text-muted">Tareas Assignadas</h4>
+<% end %>
+
 <% @tasks.each do |task| %>
   <div class="card mb-3">
     <div class="card-body">
@@ -77,7 +88,7 @@
       <h5 class="text-muted">Comentarios</h5>
     </div>
 
-    <div class="card p-3 mt-2">
+    <div class="card p-3 mt-2" style="background-color: #ddd;">
       <div class="row">
         <div class="col-md-3 justify-content-between align-items-center">
           <%= image_tag current_user.gravatar_url(d: "identicon", s: "30"), class: "img-fluid rounded-circle" %>
@@ -96,7 +107,7 @@
     </div>
 
     <% @service.comments.reverse.each do |comment| %>
-      <div class="card p-3 mt-2">
+      <div class="card p-3 mt-2"  style="<%= 'background-color: #ddd;' if comment.user_id == current_user.id %>">
         <div class="row">
           <div class="col-md-3 justify-content-between align-items-center">
             <%= image_tag comment.user.gravatar_url(d: "identicon", s: "30"), class: "img-fluid rounded-circle" %>

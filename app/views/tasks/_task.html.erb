@@ -1,33 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 mt-5">
-      <div class="card h-100 mb-5">
-        <div class="card-body">
-          <strong>Beneficiary:</strong>
-          <%= task.beneficiary_id %> |     |
-        
-          <strong>Supplier:</strong>
-          <%= task.supplier_id %> |     |
-        
-          <strong>Time:</strong>
-          <%= task.time %> |     |
-        
-          <strong>State:</strong>
-          <%= task.state %> |     |
-        
-          <strong>Scheduled at:</strong>
-          <%= task.scheduled_at %> |     |
-        
-          <strong>Service:</strong>
-          <%= task.service_id %> |     |
-        
-          <strong>Description:</strong>
-          <%= task.description %>
-        </div>
+<div class="card h-100 text-decoration-none text-dark <%= task_border_classes(task) %>">
+  <div class="card-body">
+    <div class="col-12">
+      <div class="row justify-content-between">
+        <h5 class="card-subtitle mb-2 text-muted text-right"><%= task.time %> Horas</h5>
+        <h5 class="card-subtitle mb-2 text-muted text-right"><%= task.supplier_id == current_user.id ? "ofrecidas" : "recibidas" %></h5>
       </div>
     </div>
-    <div class="col-sm-2 p-0 mt-5">
-      <%= link_to "Edit task","", class: "btn btn-success" %>
+    <div class="col-12">
+      <div><span class="font-description text-muted"><%= task.description %></span></div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="col-12">
+      <div class="row justify-content-between">
+        <div><span class="font-description text-muted">De:</span></div>
+        <div><span class="font-description text-muted"><%= task.supplier.full_name %></span></div>
+      </div>
+      <div class="row justify-content-between">
+        <div><span class="font-description text-muted">Para:</span></div>
+        <div><span class="font-description text-muted"><%= task.beneficiary.full_name %></span></div>
+      </div>
+      <div class="row justify-content-between">
+        <div><span class="font-description text-muted">Estado:</span></div>
+        <div><span class="font-description text-muted"><%= task.spanish_state %></span></div>
+      </div>
     </div>
   </div>
 </div>

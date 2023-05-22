@@ -19,3 +19,13 @@
     <% end %>
   </div>
 </div>
+
+<div class="row my-5">
+  <% @services.shuffle.each do |service| %>
+    <div class="col-3 px-1">
+      <div class="py-1" style="height: 310px;">
+        <%= render service, truncate: 200 %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -39,14 +39,18 @@ class User < ApplicationRecord
   end
 
   def offered_hours
-    offered_tasks.where(state: "complete").sum(&:time).to_i
+    offered_tasks.complete.sum(&:time).to_i
   end
 
   def requested_hours
-    requested_tasks.where(state: "complete").sum(&:time).to_i
+    requested_tasks.complete.sum(&:time).to_i
   end
 
   def hours_balance
     offered_hours - requested_hours
+  end
+
+  def all_tasks
+    Task.where(supplier_id: id).or(Task.where(beneficiary_id: id))
   end
 end

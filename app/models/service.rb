@@ -24,6 +24,10 @@ class Service < ApplicationRecord
     supplier_id.present?
   end
 
+  def comments_count
+    comments.size
+  end
+
   def owner
     if beneficiary_id.present?
       User.find(beneficiary_id)
