@@ -12,12 +12,18 @@ class Task < ApplicationRecord
   scope :accept, -> { where(state: :accepted) }
   scope :pending, -> { where(state: :pending) }
 
-  def spanish_state
+  def spanish_state(user)
     case state
     when "pending"
       "Esperando aprobación"
     when "accepted"
-      "Aprobada"
+      if supplier_id == user.id
+        "Esperando evaluación"
+      elsif beneficiary_id == user.id
+        "Evaluar servicio"
+      else
+        "Esperando evaluación"
+      end
     when "completed"
       "Completada"
     end
