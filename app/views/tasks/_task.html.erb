@@ -48,6 +48,7 @@
         <% elsif task.ranking.blank? && task.accept? && task.beneficiary_id == current_user.id %>
           <% 5.times do |index| %>
             <%= form_for(Ranking.new, url: rankings_path, html: { method: :post, class: "form-inline" }) do |f| %>
+              <%= hidden_field_tag :referrer, controller_name %>
               <%= f.hidden_field :task_id, value: task.id %>
               <%= f.hidden_field :score, value: index + 1 %>
               <%= button_tag(type: :submit, class: "border border-warning") do %>
@@ -58,6 +59,7 @@
         <% elsif task.supplier_id == current_user.id && task.pending? %>
           <div></div>
           <%= form_with(model: task, url: service_task_path(task.service_id, task.id), html: { method: :put }) do |f| %>
+            <%= hidden_field_tag :referrer, controller_name %>
             <%= f.hidden_field :state, value: "accepted" %>
             <%= f.submit  "Brindar el servicio", class: "btn btn-outline-success"%>
           <% end %>

@@ -15,7 +15,11 @@ class Task < ApplicationRecord
   def spanish_state(user)
     case state
     when "pending"
-      "Esperando aprobación"
+      if supplier_id == user.id
+        "Esperando mi aprobación"
+      else
+        "Esperando aprobación"
+      end
     when "accepted"
       if supplier_id == user.id
         "Esperando evaluación"

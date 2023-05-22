@@ -34,7 +34,13 @@ class RankingsController < ApplicationController
     respond_to do |format|
       if @ranking.save
         requested_task.update(state: "completed")
-        format.html { redirect_to service_url(@service), notice: "Ranking was successfully created." }
+        format.html {
+          if params[:referrer] == "users"
+            redirect_to "/users/show", notice: "El servicio fue calificado correctamente."
+          else
+            redirect_to service_url(@service), notice: "El servicio fue calificado correctamente."
+          end
+        }
         format.json { render :show, status: :created, location: @ranking }
       else
         format.html { render :new, status: :unprocessable_entity }

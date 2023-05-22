@@ -32,7 +32,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to service_url(@service), notice: "Task was successfully created." }
+        format.html { redirect_to service_url(@service), notice: "El servicio fue solicitado correctamente." }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +45,13 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to service_url(@task.service_id), notice: "Task was successfully updated." }
+        format.html {
+          if params[:referrer] == "users"
+            redirect_to "/users/show", notice: "El servicio fue aceptado correctamente."
+          else
+            redirect_to service_url(@task.service_id), notice: "El servicio fue aceptado correctamente."
+          end
+        }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit, status: :unprocessable_entity }
