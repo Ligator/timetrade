@@ -40,10 +40,10 @@
       <div class="row justify-content-between my-1">
         <% if task.ranking.present? %>
           <% task.ranking.score.times do %>
-            <span class="fa-solid fa-star my-1 text-warning"></span>
+            <span class="fa-solid fa-star my-2 text-warning"></span>
           <% end %>
           <% (5 - task.ranking.score).times do %>
-            <span class="fa-regular fa-star my-1 text-warning"></span>
+            <span class="fa-regular fa-star my-2 text-warning"></span>
           <% end %>
         <% elsif task.ranking.blank? && task.accept? && task.beneficiary_id == current_user.id %>
           <% 5.times do |index| %>
@@ -55,16 +55,15 @@
               <% end %>
             <% end %>
           <% end %>
+        <% elsif task.supplier_id == current_user.id && task.pending? %>
+          <div></div>
+          <%= form_with(model: task, url: service_task_path(task.service_id, task.id), html: { method: :put }) do |f| %>
+            <%= f.hidden_field :state, value: "accepted" %>
+            <%= f.submit  "Brindar el servicio", class: "btn btn-outline-success"%>
+          <% end %>
         <% else %>
-          <% if task.supplier_id == current_user.id && task.state == "pending" %>
-            <%= form_with(model: task, url: service_task_path(task.service_id, task.id), html: { method: :put }) do |f| %>
-              <%= f.hidden_field :state, value: "accepted" %>
-              <%= f.submit  "Aceptar", class: "btn btn-outline-success"%>
-            <% end %>
-          <% else %>
-            <% 5.times do %>
-              <span class="fas fa-star text-secondary"></span>
-            <% end %>
+          <% 5.times do %>
+            <span class="fas fa-star text-secondary my-2"></span>
           <% end %>
         <% end %>
       </div>
