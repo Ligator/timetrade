@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_service, only: %i[ create ]
   before_action :set_comment, only: %i[ show edit update destroy ]
 
   # GET /comments or /comments.json
@@ -21,7 +22,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @comment = Comment.new(comment_params.merge(user_id: current_user.id))
+    @comment = @service.comments.new(comment_params.merge(user_id: current_user.id))
     # @comment = Comment.new(comment_params.merge(user_id: current_user.id, service_id: params[:service_id]))
 
     respond_to do |format|
@@ -65,6 +66,10 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def set_service
+      @service = Service.find(params[:service_id])
     end
 
     # Only allow a list of trusted parameters through.
