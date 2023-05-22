@@ -1,7 +1,5 @@
-<%#= link_to service_path(task.service), class: "card h-100 text-decoration-none text-dark #{task_border_classes(task)}" do %>
 <div class="card h-100 text-dark <%= task_border_classes(task) %>">
   <%= link_to service_path(task.service), class: "link-card card-body text-decoration-none" do %>
-  <!-- <div class="card-body"> -->
     <div class="col-12">
       <div class="row justify-content-between">
         <h5 class="card-subtitle mb-2 text-muted text-right"><%= task.time %> Horas</h5>
@@ -10,7 +8,7 @@
     </div>
     <div class="col-12">
       <div class="row justify-content-between">
-        <div><span class="font-description text-muted"><%= task.description %></span></div>
+        <div><span class="font-description text-muted"><%= task.description.truncate(80) %></span></div>
       </div>
       <% if [task.supplier_id, task.beneficiary_id].include?(current_user.id) %>
         <div class="row justify-content-between">
@@ -21,12 +19,8 @@
           <div><span class="font-description text-muted"></span></div>
           <div><span class="font-description text-muted"><%= task.contact(current_user).email %></span></div>
         </div>
-        <!-- <div><span class="font-description text-muted"><%= task.contact(current_user).email %></span></div> -->
-        <!-- <div><span class="font-description text-muted"><%= task.contact(current_user).phone %></span></div> -->
       <% end %>
-
     </div>
-  <!-- </div> -->
   <% end %>
 
   <div class="card-footer <%= task_footer_bg_color(task) %>">
@@ -70,5 +64,3 @@
     </div>
   </div>
 </div>
-<%# end %>
-
