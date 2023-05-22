@@ -8,3 +8,7 @@ end
 json.offered_services do
   json.array! @user.offered_services, partial: "services/service", as: :service
 end
+
+json.tasks do
+  json.array! @user.all_tasks, partial: "tasks/task", as: :task
+end
