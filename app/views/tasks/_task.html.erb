@@ -8,7 +8,7 @@
     </div>
     <div class="col-12">
       <div class="row justify-content-between">
-        <div><span class="font-description text-muted"><%= task.description %></span></div>
+        <div><span class="font-description text-muted"><%= task.description.truncate(80) %></span></div>
       </div>
       <% if [task.supplier_id, task.beneficiary_id].include?(current_user.id) %>
         <div class="row justify-content-between">
