@@ -1,5 +1,7 @@
+<%#= link_to service_path(task.service), class: "card h-100 text-decoration-none text-dark #{task_border_classes(task)}" do %>
 <div class="card h-100 text-dark <%= task_border_classes(task) %>">
   <%= link_to service_path(task.service), class: "link-card card-body text-decoration-none" do %>
+  <!-- <div class="card-body"> -->
     <div class="col-12">
       <div class="row justify-content-between">
         <h5 class="card-subtitle mb-2 text-muted text-right"><%= task.time %> Horas</h5>
@@ -8,7 +10,7 @@
     </div>
     <div class="col-12">
       <div class="row justify-content-between">
-        <div><span class="font-description text-muted"><%= task.description.truncate(80) %></span></div>
+        <div><span class="font-description text-muted"><%= task.description %></span></div>
       </div>
       <% if [task.supplier_id, task.beneficiary_id].include?(current_user.id) %>
         <div class="row justify-content-between">
@@ -19,8 +21,12 @@
           <div><span class="font-description text-muted"></span></div>
           <div><span class="font-description text-muted"><%= task.contact(current_user).email %></span></div>
         </div>
+        <!-- <div><span class="font-description text-muted"><%= task.contact(current_user).email %></span></div> -->
+        <!-- <div><span class="font-description text-muted"><%= task.contact(current_user).phone %></span></div> -->
       <% end %>
+
     </div>
+  <!-- </div> -->
   <% end %>
 
   <div class="card-footer <%= task_footer_bg_color(task) %>">
@@ -56,11 +62,20 @@
             <% end %>
           <% end %>
         <% else %>
-          <% 5.times do %>
-            <span class="fas fa-star my-1 text-secondary"></span>
+          <% if task.supplier_id == current_user.id && task.state == "pending" %>
+            <%= form_with(model: task, url: service_task_path(task.service_id, task.id), html: { method: :put }) do |f| %>
+              <%= f.hidden_field :state, value: "accepted" %>
+              <%= f.submit  "Aceptar", class: "btn btn-outline-success"%>
+            <% end %>
+          <% else %>
+            <% 5.times do %>
+              <span class="fas fa-star text-secondary"></span>
+            <% end %>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<%# end %>
+
