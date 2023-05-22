@@ -28,6 +28,8 @@ https://github.com/Ligator/timetrade
 This repository is ready to be consumed by an external service through an API. For example, here is an independent interface build in react.
 https://timetrade.vercel.app
 
+[![Here are our endpoints](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/21451718-c6203b32-a0e3-42e7-9835-eb8a202d7ada?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D21451718-c6203b32-a0e3-42e7-9835-eb8a202d7ada%26entityType%3Dcollection%26workspaceId%3D45e8736e-8624-4362-b8a1-120dc5c8a1ed)
+
 ## Warnings
 In this repository has a insecure implementation that should not be copied
 
