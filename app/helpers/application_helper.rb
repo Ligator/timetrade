@@ -13,4 +13,15 @@ module ApplicationHelper
       "border border-success"
     end
   end
+
+  def task_footer_bg_color(task)
+    case task.state
+    when "pending"
+      "text-muted"
+    when "accepted"
+      "bg-warning text-dark"
+    when "completed"
+      "bg-success text-white"
+    end
+  end
 end
