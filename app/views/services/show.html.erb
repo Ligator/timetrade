@@ -37,54 +37,41 @@
   <% end %>
 </div>
 
-<% if @tasks.present? %>
-  <h4 class="text-muted">Tareas Assignadas</h4>
-<% end %>
+<div class="row">
+  <div class="col-12">
+    <h4 class="my-3 text-muted">Tareas</h2>
+  </div>
 
-<% @tasks.each do |task| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <%= task.supplier.firstname + task.supplier.lastname %>
-        </div>
-        <div class="col">
-          <%= task.supplier.email %>
-        </div>
-        <div class="col">
-          Horas:
-          <%= task.time %>
-        </div>
-        <div class="col">
-          Estado:
-          <%= task.state %>
-        </div>
-
-        <% if !task.ranking && task.beneficiary_id == current_user.id %>
-          <div class="col col-4">
-            <%= form_for(Ranking.new, url: rankings_path, html: { method: :post }) do |f| %>
-              <div class="row row-cols-3">
-                <div class="col">
-                  <%= f.label "Calificación:" %>
-                </div>
-                <%= f.text_field :score, class: "form-control col col-2", type: :number, max: 5 %>
-                <%= f.submit "Clomplete", class: "btn btn-primary col" %>
-              </div>
-            <% end %>
+  <div class="col-12">
+    <div class="row row-cols-3 p-2">
+      <% @service.tasks.accept.each do |task| %>
+        <div class="col-3 px-1">
+          <div class="py-1" style="height: 300px;">
+            <%= render task %>
           </div>
-        <% elsif task.ranking %>
-          <div class="col">
-            <h5><%= task.ranking.score %></h5>
+        </div>
+      <% end %>
+      <% @service.tasks.pending.each do |task| %>
+        <div class="col-3 px-1">
+          <div class="py-1" style="height: 300px;">
+            <%= render task %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+      <% @service.tasks.complete.each do |task| %>
+        <div class="col-3 px-1">
+          <div class="py-1" style="height: 300px;">
+            <%= render task %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>
 
 <div class="row">
   <div class="col-md-12">
-    <div class="mb-3">
+    <div class="my-3">
       <h5 class="text-muted">Comentarios</h5>
     </div>
 

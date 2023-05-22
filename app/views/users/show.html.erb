@@ -9,7 +9,14 @@
     <div class="col-md-8">
       <div class="profile-head">
         <div class="mb-3">
-          <h3><%= @user.full_name %></h3>
+          <h3>
+            <%= @user.full_name %>
+            <span>
+              <% @user.average_score.times do %>
+                <span class="fa-solid fa-star text-warning"></span>
+              <% end %>
+            </span>
+          </h3>
           <h6>Balance: <%= @user.hours_balance %> Horas</h6>
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -137,9 +144,23 @@
   </div>
 
   <div class="row row-cols-3 p-2">
-    <% @user.all_tasks.group_by(&:state).values.flatten.each do |task| %>
+    <% @user.all_tasks.accept.each do |task| %>
       <div class="col-3 px-1">
-        <div class="py-1" style="height: 270px;">
+        <div class="py-1" style="height: 300px;">
+          <%= render task %>
+        </div>
+      </div>
+    <% end %>
+    <% @user.all_tasks.pending.each do |task| %>
+      <div class="col-3 px-1">
+        <div class="py-1" style="height: 300px;">
+          <%= render task %>
+        </div>
+      </div>
+    <% end %>
+    <% @user.all_tasks.complete.each do |task| %>
+      <div class="col-3 px-1">
+        <div class="py-1" style="height: 300px;">
           <%= render task %>
         </div>
       </div>

@@ -1,5 +1,7 @@
+<%#= link_to service_path(task.service), class: "card h-100 text-decoration-none text-dark #{task_border_classes(task)}" do %>
 <div class="card h-100 text-decoration-none text-dark <%= task_border_classes(task) %>">
-  <div class="card-body">
+  <%= link_to service_path(task.service), class: "card-body" do %>
+  <!-- <div class="card-body"> -->
     <div class="col-12">
       <div class="row justify-content-between">
         <h5 class="card-subtitle mb-2 text-muted text-right"><%= task.time %> Horas</h5>
@@ -22,8 +24,10 @@
         <!-- <div><span class="font-description text-muted"><%= task.contact(current_user).email %></span></div> -->
         <!-- <div><span class="font-description text-muted"><%= task.contact(current_user).phone %></span></div> -->
       <% end %>
+
     </div>
-  </div>
+  <!-- </div> -->
+  <% end %>
   <div class="card-footer">
     <div class="col-12">
       <div class="row justify-content-between">
@@ -38,6 +42,32 @@
         <div><span class="font-description text-muted">Estado:</span></div>
         <div><span class="font-description text-muted"><%= task.spanish_state %></span></div>
       </div>
+      <div class="row justify-content-between my-1">
+        <% if task.ranking.present? %>
+          <% task.ranking.score.times do %>
+            <span class="fa-solid fa-star text-warning"></span>
+          <% end %>
+          <% (5 - task.ranking.score).times do %>
+            <span class="fa-regular fa-star text-warning"></span>
+          <% end %>
+        <% elsif task.ranking.blank? && task.accept? && task.beneficiary_id == current_user.id %>
+          <% 5.times do |index| %>
+            <%= form_for(Ranking.new, url: rankings_path, html: { method: :post, class: "form-inline" }) do |f| %>
+              <%= f.hidden_field :task_id, value: task.id %>
+              <%= f.hidden_field :score, value: index + 1 %>
+              <%= button_tag(type: :submit, class: "border border-warning") do %>
+                <span class="fa-regular fa-star text-warning"></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% 5.times do %>
+            <span class="fas fa-star text-secondary"></span>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+<%# end %>
+

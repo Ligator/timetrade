@@ -8,7 +8,7 @@ module ApplicationHelper
     when "pending"
       ""
     when "accepted"
-      "border border-warning"
+      "border border-warning bg-light"
     when "completed"
       "border border-success"
     end

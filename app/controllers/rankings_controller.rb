@@ -33,7 +33,7 @@ class RankingsController < ApplicationController
 
     respond_to do |format|
       if @ranking.save
-        requested_task.update(state: "complete")
+        requested_task.update(state: "completed")
         format.html { redirect_to service_url(@service), notice: "Ranking was successfully created." }
         format.json { render :show, status: :created, location: @ranking }
       else

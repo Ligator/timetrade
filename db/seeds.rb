@@ -2242,3 +2242,15 @@ end
 
 Task.insert_all(tasks_attrs.flatten)
 ActiveRecord::Base.connection.reset_pk_sequence!('tasks')
+
+ranking_attrs = Task.complete.map do |task|
+  {
+    score: Random.random_number(1..5),
+    task_id: task.id,
+    beneficiary_id: task.beneficiary_id,
+    supplier_id: task.supplier_id
+  }
+end
+
+Ranking.insert_all(ranking_attrs.flatten)
+ActiveRecord::Base.connection.reset_pk_sequence!('rankings')

@@ -9,6 +9,8 @@ class Task < ApplicationRecord
   # validates :description, presence: true
 
   scope :complete, -> { where(state: :completed) }
+  scope :accept, -> { where(state: :accepted) }
+  scope :pending, -> { where(state: :pending) }
 
   def spanish_state
     case state
@@ -19,6 +21,18 @@ class Task < ApplicationRecord
     when "completed"
       "Completada"
     end
+  end
+
+  def pending?
+    state == "pending"
+  end
+
+  def accept?
+    state == "accepted"
+  end
+
+  def complete?
+    state == "completed"
   end
 
   def contact(user)
