@@ -20,31 +20,13 @@ TimeTrade is an idea made by:
 ![figjam.png](public%2Ffigjam.png)
 https://www.figma.com/file/Tdz7Lc54BtUhCxgDLCkJCw/TimeTrade?type=whiteboard&t=RrTHLdKMzJbMUfSf-1
 
-## Backend Repository
-It is mandataroy to be able to use the app
-
+## The app in production
+This repository is currently deployed in fly.io in the following url
 https://github.com/Ligator/timetrade
 
-## The app in production
-This repository is currently deployed in Vercel in the following url
+## The API
+This repository is ready to be consumed by an external service through an API. For example, here is an independent interface build in react.
 https://timetrade.vercel.app
-
-## How to run it localy
-Due to the time restrictions of the Hackaton, there is no mocks of the implementation
- of the server side request, so it is important to check that the backend is still available to use.
-
-- You can check by going to the following url
-https://timetrade.fly.dev
-
-Once you are sure that the backend is up and running you can start.
-
-First download the repository into your personal computer and then run the following commands.
-
-```sh
-npm install
-
-npm run dev
-```
 
 ## Warnings
 In this repository has a insecure implementation that should not be copied
