@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
     beneficiary_id = @service.beneficiary_id.presence || current_user.id
     supplier_id = @service.supplier_id.presence || current_user.id
-    params_to_save = task_params.merge!(beneficiary_id: beneficiary_id, supplier_id: supplier_id, description: @service.description)
+    params_to_save = task_params.merge!(beneficiary_id: beneficiary_id, supplier_id: supplier_id, description: @service.title)
     @task = @service.tasks.new(params_to_save)
 
     respond_to do |format|
