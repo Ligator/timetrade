@@ -14,7 +14,7 @@ TimeTrade is an idea made by:
 - https://github.com/davepcage
 - https://github.com/AlfredoJA
 - https://github.com/Ligator
-- https://github.com/cruzamilcars
+- https://github.com/juanmavelez
 
 ## Documentation
 ![figjam.png](public%2Ffigjam.png)
